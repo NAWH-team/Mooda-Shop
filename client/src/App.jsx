@@ -13,7 +13,7 @@ function App() {
     const router = createBrowserRouter(
       createRoutesFromElements(
         <>
-          <Route path='/home' element={<h1>this is home</h1>} />
+          <Route path='/' element={<h1>this is home</h1>} />
            
         </>
       )
