@@ -7,13 +7,15 @@ import {
   Route,
 } from "react-router-dom";
 import { RouterProvider } from "react-router";
+import Signin from './pages/Signin.jsx';
 
 function App() {
     const current = useContext(MyContext)
     const router = createBrowserRouter(
       createRoutesFromElements(
         <>
-          <Route path='/' element={<h1>this is home</h1>} />
+          <Route path='/' element={<h1 className='text-red-500'>this is home</h1>} />
+          <Route path='/signin' element ={ <Signin/>} />
            
         </>
       )

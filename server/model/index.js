@@ -65,7 +65,7 @@ const tst = async () => {
     await sequelize.sync({ alter: true });
 
 }
-// tst()
+//  tst()
 
 
 module.exports = db;

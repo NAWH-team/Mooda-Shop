@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
         img : {
             type: DataTypes.STRING,
             allowNull : true,
+        },
+        token:{
+          type:DataTypes.STRING,
+          allowNull:false 
         }
       },
     );
