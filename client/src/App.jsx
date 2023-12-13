@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { RouterProvider } from "react-router";
 import ArtistPage from './pages/artistProfile';
+import Question from './pages/faqPages/oneQuest';
 function App() {
     const current = useContext(MyContext)
     const router = createBrowserRouter(
@@ -15,6 +16,7 @@ function App() {
         <>
           <Route path='/' element={<h1>this is home</h1>} />
           <Route path='/artist' element={<ArtistPage/>}/>           
+          <Route path='/q' element={<Question/>}/>           
         </>
       )
     );
@@ -22,7 +24,7 @@ function App() {
 
    <>
     <div className="App ">
-   
+         
      <RouterProvider router={router}></RouterProvider>
    
  </div>
