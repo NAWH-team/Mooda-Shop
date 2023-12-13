@@ -6,11 +6,10 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        response: {
-            type : DataTypes.STRING,
-            allowNull: true,
-        },
-        
+        Votes : {
+          type: DataTypes.INTEGER,
+          defaultValue : 0,
+        }
         
       },
     );

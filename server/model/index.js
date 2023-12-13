@@ -25,7 +25,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.dotenv = dotenv;
-
+// db.sequelize.sync({alter:true})
 /* Start here */
 db.user = require('./user_model')(sequelize, DataTypes)
 db.artist = require('./artist_model')(sequelize, DataTypes)

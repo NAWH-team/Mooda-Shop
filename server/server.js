@@ -16,10 +16,8 @@ app.use('/user',require('./routes/user_routes.js'))
 app.use('/wallet',require('./routes/wallet_router.js'))
 
 
-
-
-
-
+// faq routes
+app.use('/faq',require('./routes/FAQ_routes.js'))
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);

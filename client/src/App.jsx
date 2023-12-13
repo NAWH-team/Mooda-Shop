@@ -7,7 +7,7 @@ import Footer from './components/Footer.jsx'
 import Signin from './pages/Signin.jsx';
 import Login from './pages/Login.jsx'
 import Home from "./pages/Home.jsx";
-
+import Ask from "./pages/faqPages/ask.jsx";
 
 
 const Layout = () => {
@@ -36,7 +36,12 @@ const router = createBrowserRouter([
       {
         path: "/ArtistPage",
         element: <ArtistPage />,
+      },
+      {
+        path:"/ask",
+        element:<Ask/>,
       }
+     
     ]
   },
 
