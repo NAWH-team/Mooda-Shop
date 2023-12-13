@@ -60,12 +60,7 @@ db.artist.hasMany(db.artistPost,{
 })
 db.artistPost.belongsTo(db.artist)
 
-const tst = async () => {
 
-    await sequelize.sync({ alter: true });
-
-}
-// tst()
 
 
 module.exports = db;

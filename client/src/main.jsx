@@ -6,8 +6,8 @@ import  {MyContextProvider}  from "./myContext.jsx";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  
   <MyContextProvider>
-
     <React.StrictMode>
       <App />
     </React.StrictMode>
