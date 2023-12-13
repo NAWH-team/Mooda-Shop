@@ -1,34 +1,65 @@
-import { useState, useContext } from 'react'
+import { createBrowserRouter, Outlet, RouterProvider, } from "react-router-dom";
 import './index.css'
-import  {MyContext}  from './myContext';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-} from "react-router-dom";
-import { RouterProvider } from "react-router";
-import ArtistPage from './pages/artistProfile';
-function App() {
-    const current = useContext(MyContext)
-    const router = createBrowserRouter(
-      createRoutesFromElements(
-        <>
-          <Route path='/' element={<h1>this is home</h1>} />
-          <Route path='/artist' element={<ArtistPage/>}/>           
-        </>
-      )
-    );
-  return (
+import Mywallet from './pages/wallets.jsx';
+import ArtistPage from './pages/artistProfile.jsx'
+import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
+import Signin from './pages/Signin.jsx';
+import Login from './pages/Login.jsx'
+import Home from "./pages/Home.jsx";
 
-   <>
-    <div className="App ">
-   
-     <RouterProvider router={router}></RouterProvider>
-   
- </div>
-    
-    </>
+
+
+const Layout = () => {
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
   )
 }
 
-export default App
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/mywallet",
+        element: <Mywallet />,
+      },
+      {
+        path: "/ArtistPage",
+        element: <ArtistPage />,
+      }
+    ]
+  },
+
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+
+]);
+
+function App() {
+  return (
+    <div >
+      <RouterProvider router={router} />
+    </div>
+  )
+}
+
+
+
+export default App;
+
