@@ -15,11 +15,11 @@ const sequelize = new Sequelize(dbNAME, dbUser, dbPassword, {
 });
 
 sequelize
-    .authenticate()
-    .then(() => console.log("Connected to the database "))
-    .catch((err) =>
-        console.error("Unable to connect to the database ", err)
-    );
+.authenticate()
+.then(() => console.log("Connected to the database "))
+.catch((err) =>
+console.error("Unable to connect to the database ", err)
+);
 
 const db = {};
 db.Sequelize = Sequelize;
@@ -61,6 +61,6 @@ db.artist.hasMany(db.artistPost,{
 db.artistPost.belongsTo(db.artist)
 
 
-
+// db.sequelize.sync({alter:true})
 
 module.exports = db;

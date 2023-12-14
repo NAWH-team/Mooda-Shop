@@ -1,11 +1,11 @@
 const db = require("../model/index.js");
-const User = db.user;
+const Artist = db.artist;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 exports.findAll = async (req, res) => {
   try {
-    const data =  await User.findAll()
+    const data =  await Artist.findAll()
     res.status(200).json(data)
   } catch (err) {
     res.status(500).send("Server Error");
@@ -14,17 +14,16 @@ exports.findAll = async (req, res) => {
 
 exports.Signup = async (req, res) => {
   const { name, lastName, email, password, birthDate, img } = req.body;
-    console.log(name,lastName,email,password,birthDate);
   try {
-    const existingUser = await User.findOne({ where: { email } });
-    if (existingUser) {
-      return res.status(409).json(existingUser);
+    const existingArtist = await Artist.findOne({ where: { email } });
+    if (existingArtist) {
+      return res.status(409).json(existingArtist);
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
-    const token = jwt.sign({ email,name ,img,lastName,status:'user' },'secret');
+    const token = jwt.sign({ email,name ,img,lastName,status:'Artist' },'secret');
 
-    const newUser = await User.create({
+    const newArtist = await Artist.create({
       name,
       password: hashPassword,
       email,
@@ -35,7 +34,7 @@ exports.Signup = async (req, res) => {
     })
     
     
-   res.status(200).json('User created successfully');
+   res.status(200).json('Artist created successfully');
   } catch (error) {
     console.error(error);
     res.status(500).send(error.message || "Internal Server Error");
@@ -44,17 +43,17 @@ exports.Signup = async (req, res) => {
 exports.Signin = async(req,res) =>{
   const {email,password}= req.body 
   try {
-    const existinguser = await User.findOne({where:{email}})
-    if(!existinguser){
+    const existingArtist = await Artist.findOne({where:{email}})
+    if(!existingArtist){
       return res.status(400).send("Invalid email and password");
     }
-    if(existinguser){
+    if(existingArtist){
       const checkPassword = await bcrypt.compare(
         password,
-        existinguser.password
+        existingArtist.password
         )
         if (checkPassword) {
-        const token = {Token :existinguser.token,id:existinguser.id};
+        const token = {Token :existingArtist.token,id:existingArtist.id};
         res.cookie("access_token", token, { httpOnly: true }).status(200).json(token)
         // res.status(200).json(token);
       } else {
@@ -62,6 +61,7 @@ exports.Signin = async(req,res) =>{
       }
     }
   } catch (error){ 
+       console.log(error);
       res.status(500).send(error);
     }
 }
@@ -69,5 +69,17 @@ exports.logout = (req,res)=>{
     res.clearCookie("acces_token",{
         sameSite:"none",
        secure:true,
-    }).status("200").json('user has been loged out')
+    }).status("200").json('Artist has been loged out')
+}
+
+exports.update= async (req,res)=>{
+   const  {name,lastName,img,id}= req.body
+  try {
+    const data = await Artist.update({name:name,lastName:lastName,img:img},{where:{
+        id:id}
+    })
+    res.json(data)
+  }catch(err){
+    res.json(err)
+  }
 }

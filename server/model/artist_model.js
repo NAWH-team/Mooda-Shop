@@ -26,7 +26,12 @@ module.exports = (sequelize, DataTypes) => {
         img : {
             type: DataTypes.STRING,
             allowNull : true,
+        },
+        token:{
+          type:DataTypes.TEXT,
+                   allowNull:false 
         }
+        
       },
     );
     return artist;
