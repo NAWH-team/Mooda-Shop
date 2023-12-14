@@ -33,7 +33,7 @@ db.brand = require('./brand_model')(sequelize, DataTypes)
 db.product = require('./product_model')(sequelize, DataTypes)
 db.artistPost = require('./artistPost_model')(sequelize, DataTypes)
 db.faq = require('./FAQ_model')(sequelize, DataTypes)
-db.wallet = require ('./wallet_model')(sequelize,DataTypes)
+// db.wallet = require ('./wallet_model')(sequelize,DataTypes)
 
 // Relations
 // faq to user 
@@ -43,9 +43,11 @@ db.user.hasMany(db.faq , {
 })
 db.faq.belongsTo(db.user)
 // wallet
-db.user.belongsToMany(db.product, { through: 'wallets' });
-db.product.belongsToMany(db.user, { through: 'wallets' });
 
+db.user.belongsToMany(db.product, { through: 'wallets', as: 'products', foreignKey: 'user_id' });
+db.product.belongsToMany(db.user, { through: 'wallets', as: 'users', foreignKey: 'product_id' });
+
+// db.sequelize.sync({alter:true})
 
 // brand to product 
 

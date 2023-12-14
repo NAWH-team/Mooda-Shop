@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
             type : DataTypes.INTEGER,
             allowNull : false,
         },
+        intQty : {
+          type : DataTypes.INTEGER,
+          allowNull : false,
+      },
         collection : {
              type : DataTypes.STRING,
              allowNull: false,
@@ -35,6 +39,14 @@ module.exports = (sequelize, DataTypes) => {
         status : {
          type : DataTypes.BOOLEAN,
          allowNull : false ,
+        },
+        createdAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        updatedAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         }
       },
     );

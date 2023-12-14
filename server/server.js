@@ -7,6 +7,7 @@ const app = express();
 
 /* Connect database with server  */
 const db = require("./model/index.js");
+
 /* Middleware */
 app.use(express.json());
 app.use(cors());
