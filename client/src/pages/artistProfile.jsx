@@ -1,13 +1,13 @@
 import { FaCamera } from "react-icons/fa";
-
+import FAQ from "./faqPages/faq";
 const ArtistPage = () => {
   return (
-    <div className="container mx-auto p-4 lg:relative">
+  <div className="container mx-auto p-4 lg:relative ">
       <div className="lg:w-[1040px] mx-auto">
         {/* Artist Information Section */}
         <div className="relative top-10">
           <img
-            className="w-full h-[355px] lg:h-[426px] opacity-80 rounded-5"
+            className="w-full h-[355px] lg:h-[426px] opacity-80 rounded-5 "
             src="https://t3.ftcdn.net/jpg/05/96/09/62/360_F_596096212_DACXTnAgcHxxJmtyTxKe03SMi7LYrOgJ.jpg"
             alt="Artist Background"
           />
@@ -48,7 +48,7 @@ const ArtistPage = () => {
             </div>
             
           </div>
-          <div class="text-white text-base font-medium font-['SF Pro Display'] relative left-32 lg:relative top-[-3px] lg:left-80 bottom-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+          <div class="text-white text-base font-medium font-['SF Pro Display'] relative left-10 lg:relative top-[-3px] lg:left-80 bottom-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
           <img
             className="w-full lg:w-[666px] h-[426px] rounded-5 lg:relative lg:left-[200px]"
             src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Wireframe_View_of_Low_Poly_Dynamic_Digital_Clothing_3D_Model.jpg"
@@ -56,6 +56,7 @@ const ArtistPage = () => {
           />
         </div>
       </div>
+      <FAQ/>
     </div>
   );
 };
