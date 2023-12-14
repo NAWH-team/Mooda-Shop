@@ -11,7 +11,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
         },
         
-        
+        createdAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        updatedAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        }
       },
     );
     return faq;
