@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         Votes : {
           type: DataTypes.INTEGER,
           defaultValue : 0,
-        }
+        },
         
 
         response: {

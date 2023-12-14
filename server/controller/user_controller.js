@@ -22,7 +22,6 @@ exports.Signup = async (req, res) => {
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
-    const token = jwt.sign({ name ,img },'secret');
         
     const token = jwt.sign({ name ,img,lastName,status:'user' },'secret');
 
