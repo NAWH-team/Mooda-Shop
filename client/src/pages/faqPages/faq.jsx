@@ -8,7 +8,6 @@ const FAQ = ()=>{
     const [faq,setFaq] = useState()
     const [votes,setVotes]=useState()
     useEffect(()=>{
-        console.log(faq);
      const getFaq =async ()=>{
         var {data} = await axios.get('http://localhost:8080/faq/all')
         setFaq(data)

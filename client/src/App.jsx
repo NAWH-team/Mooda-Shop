@@ -8,7 +8,7 @@ import Signin from './pages/Signin.jsx';
 import Login from './pages/Login.jsx'
 import Home from "./pages/Home.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
-
+import ArtistRegister from "./pages/artistAuth/Register.jsx";
 
 const Layout = () => {
   return (
@@ -52,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/artist/signup",
+    element: <ArtistRegister />,
   },
 
 ]);
