@@ -11,12 +11,13 @@ import Home from "./pages/Home.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
+
 const Layout = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
@@ -60,9 +61,9 @@ const router = createBrowserRouter([
   },
   {
     path: "artist/signin",
-    element: <ArtistSignin />,
+    element: <ArtistSignin/>,
   },
-
+  
 
 ]);
 

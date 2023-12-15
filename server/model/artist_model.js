@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         img : {
             type: DataTypes.STRING,
             allowNull : true,
+            defaultValue: 'https://static.vecteezy.com/ti/vecteur-libre/p3/11495110-icone-de-ligne-isolee-avatar-homme-sur-fond-blanc-icone-de-photo-de-profil-avatar-d-un-jeune-homme-souriant-illustrationle-personnage-masculin-a-la-mode-vectoriel.jpg',
         },
         createdAt: {
           type: DataTypes.DATE,
