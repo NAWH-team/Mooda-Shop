@@ -68,19 +68,19 @@ exports.deleteFromwallet = async (req, res) => {
     }
 };
 
-exports.deleteAll= async (req, res) => {
-        const userId = req.params.userId;
-        try {
-            const user = await db.user.findByPk(userId);
-            if (!user) {
-                return res.status(404).json({ success: false, message: 'User not found' });
-            }
-            await user.setProducts(null);
-            res.status(200).json({ success: true, message: 'All products deleted for user successfully' });
-        } catch (error) {
-            console.error('Error deleting all products for user:', error);
-            res.status(500).json({ success: false, message: 'Internal server error' });
+exports.deleteAll = async (req, res) => {
+    const userId = req.params.userId;
+    try {
+        const user = await db.user.findByPk(userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
         }
+        await user.setProducts(null);
+        res.status(200).json({ success: true, message: 'All products deleted for user successfully' });
+    } catch (error) {
+        console.error('Error deleting all products for user:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 };
 
 exports.incrIntqty = async (req, res) => {
@@ -189,7 +189,7 @@ exports.UpQnty = async (req, res) => {
         }
 
         productToUpdate.quantity = productToUpdate.quantity - productToUpdate.intQty;
-        productToUpdate.intQty= 1
+        productToUpdate.intQty = 1
         await productToUpdate.save();
 
         res.status(200).json({

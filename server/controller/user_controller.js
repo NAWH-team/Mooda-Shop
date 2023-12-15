@@ -33,7 +33,7 @@ exports.Signup = async (req, res) => {
       birthDate,
       img,
       token,
-    })
+      })
     
     
    res.status(200).json('User created successfully');
