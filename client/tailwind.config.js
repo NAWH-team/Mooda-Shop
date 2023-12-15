@@ -12,10 +12,7 @@ module.exports = {
         white: "#fff",
         red: "#ff2525",  
         tomato: "#ff3535",
-        gainsboro: {
-          "100": "rgba(230, 230, 230, 0.75)",
-          "200": "rgba(222, 222, 222, 0.76)",
-        },
+     
         lightgray: "#cfcfcf",
       },
       spacing: {},
@@ -24,9 +21,7 @@ module.exports = {
         "sf-pro-display": "'SF Pro Display'",
         roboto: "Roboto",
       },
-      borderRadius: {
-        "3xs": "10px",
-      },
+     
     },
     fontSize: {
       mini: "15px",
@@ -34,21 +29,9 @@ module.exports = {
       base: "16px",
       inherit: "inherit",
     },
-    screens: {
-      lg: {
-        max: "1200px",
-      },
-      md: {
-        max: "960px",
-      },
-      sm: {
-        max: "420px",
-      },
-    },
+
   },
-  corePlugins: {
-    preflight: false,
-  },
+
   plugins: [
     require('@tailwindcss/forms'),
   ],
