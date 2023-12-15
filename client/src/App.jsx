@@ -42,14 +42,15 @@ const router = createBrowserRouter([
         path: "/ArtistPage",
         element: <ArtistPage />,
       },
-      // {
-      //   path:"/About",
-      //   element: <AboutUs />
-      // },
       {
         path:"/ask",
         element:<Ask/>,
+      },
+      {
+        path:"/static",
+        element:<Static/>,
       }
+     
     ]
   },
 
