@@ -65,4 +65,6 @@ db.artistPost.belongsTo(db.artist)
 
 // db.sequelize.sync({alter:true})
 
+
+
 module.exports = db;

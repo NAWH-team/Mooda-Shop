@@ -15,9 +15,12 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false,
         },
         img : {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(500),
             allowNull : false,
         },
+        token:{
+          type:DataTypes.STRING(500),
+                   allowNull:false}, 
         createdAt: {
           type: DataTypes.DATE,
           defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

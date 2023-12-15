@@ -93,7 +93,7 @@ import axios from "axios";
           </input>
           <div className="w-[229px] h-[0px] left-0 top-[33px] absolute border border-white border-opacity-50"></div>
         </div>
-        <div className="w-[204px] h-[33px] left-[254px] top-0 absolute space-y-4">
+        <div className="w-[204px] h-[33px] left-[254px] top-[40] relative space-y-4">
           <input onChange={(e)=>setlastName(e.target.value)} placeholder="LastName" className= "bg-transparent left-[1px] top-0 absolute text-white text-lg font-normal font-['SF Pro Display'] tracking-tight">
         
           </input>
@@ -102,11 +102,11 @@ import axios from "axios";
       </div>
       
       {/* Input for Date of Birth */}
-      <div className="w-[459px] h-[81px] left-[631px] top-[532px] absolute space-y-4">
+      <div className="w-[459px] h-[81px] left-[631px] top-[-130px] relative space-y-4">
         <div className="left-[1px] top-0 absolute text-white text-lg font-normal font-['SF Pro Display'] tracking-tight">
           Date Of Birth
         </div>
-        <div className="w-[135px] h-[0px] left-0 top-[81px] absolute border border-white border-opacity-50"></div>
+        <div className="w-[135px] h-[0px] left-0 top-[81px] relative border border-white border-opacity-50"></div>
         <div className="w-[135px] h-[0px] left-[162px] top-[81px] absolute border border-white border-opacity-50"></div>
         <div className="w-[135px] h-[0px] left-[324px] top-[81px] absolute border border-white border-opacity-50"></div>
         
@@ -122,7 +122,7 @@ import axios from "axios";
       </div>
       
       {/* Create Account Button */}
-      <div className="w-[175px] h-[47px] px-5 py-2.5 left-[915px] top-[663px] absolute bg-gradient-to-bl from-purple-500 to-violet-700 rounded-[121px] justify-center items-center gap-2.5 inline-flex">
+      <div className="w-[175px] h-[47px] px-5 py-2.5 left-[915px] top-[40px] relative bg-gradient-to-bl from-purple-500 to-violet-700 rounded-[121px] justify-center items-center gap-2.5 inline-flex">
         <button className="text-white text-[17px] font-medium font-['Poppins']"  onClick={handelSubmit}>Create Account</button>
       </div>
     </div>
