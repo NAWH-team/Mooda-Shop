@@ -11,6 +11,8 @@ import Home from "./pages/Home.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
+import Static from "./pages/Static.jsx"
+
 const Layout = () => {
   return (
     <div>
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
       {
         path:"/ask",
         element:<Ask/>,
+      },
+      {
+        path:"/static",
+        element:<Static/>,
       }
      
     ]
@@ -60,9 +66,9 @@ const router = createBrowserRouter([
   },
   {
     path: "artist/signin",
-    element: <ArtistSignin />,
+    element: <ArtistSignin/>,
   },
-
+  
 
 ]);
 

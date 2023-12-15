@@ -13,7 +13,7 @@ exports.findAll = async (req, res) => {
 };
 
 exports.Signup = async (req, res) => {
-  const { name, lastName, email, password, birthDate, img } = req.body;
+  const { name, lastName, email, password, birthDate } = req.body;
   try {
     const existingArtist = await Artist.findOne({ where: { email } });
     if (existingArtist) {
@@ -21,7 +21,7 @@ exports.Signup = async (req, res) => {
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
-    const token = jwt.sign({ email,name ,img,lastName,status:'Artist' },'secret');
+    const token = jwt.sign({ email,name ,lastName,status:'artist' },'secret');
 
     const newArtist = await Artist.create({
       name,
@@ -29,7 +29,6 @@ exports.Signup = async (req, res) => {
       email,
       lastName,
       birthDate,
-      img,
       token,
     })
     
@@ -72,14 +71,25 @@ exports.logout = (req,res)=>{
     }).status("200").json('Artist has been loged out')
 }
 
-exports.update= async (req,res)=>{
-   const  {name,lastName,img,id}= req.body
+exports.update = async (req, res) => {
+  const { name, lastName, img, id } = req.body;
+  const Token = jwt.sign({ name, lastName, img, id, status: 'artist' }, 'Secret');
   try {
-    const data = await Artist.update({name:name,lastName:lastName,img:img},{where:{
-        id:id}
-    })
-    res.json(data)
-  }catch(err){
-    res.json(err)
+     const [affectedRows] = await Artist.update(
+        { name: name, lastName: lastName, img: img, token: Token },
+        {
+           returning: true,
+           where: {
+              id: id,
+           },
+        }
+     );
+     
+        const updatedArtist = await Artist.findOne({where:{id:id}});
+        res.json(updatedArtist.token); // Send the token from the updated artist
+     
+  } catch (err) {
+     console.error(err);
+     res.status(500).json({ error: 'Internal server error', details: err.message });
   }
-}
+};
