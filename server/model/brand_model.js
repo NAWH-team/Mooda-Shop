@@ -20,7 +20,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         token:{
           type:DataTypes.STRING(500),
-                   allowNull:false 
+                   allowNull:false}, 
+        createdAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        updatedAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         }
       },
     );

@@ -14,7 +14,7 @@ exports.findAll = async (req, res) => {
 
 exports.Signup = async (req, res) => {
   const { name, lastName, email, password, birthDate, img } = req.body;
-
+    console.log(name,lastName,email,password,birthDate);
   try {
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
@@ -22,6 +22,7 @@ exports.Signup = async (req, res) => {
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
+        
     const token = jwt.sign({ name ,img,lastName,status:'user' },'secret');
 
     const newUser = await User.create({
@@ -32,10 +33,10 @@ exports.Signup = async (req, res) => {
       birthDate,
       img,
       token,
-    });
-
+    })
+    
+    
    res.status(200).json('User created successfully');
-    console.log(token);
   } catch (error) {
     console.error(error);
     res.status(500).send(error.message || "Internal Server Error");
@@ -54,7 +55,7 @@ exports.Signin = async(req,res) =>{
         existinguser.password
         )
         if (checkPassword) {
-        const token = existinguser.token;
+        const token = {Token :existinguser.token,id:existinguser.id};
         res.cookie("access_token", token, { httpOnly: true }).status(200).json(token)
         // res.status(200).json(token);
       } else {

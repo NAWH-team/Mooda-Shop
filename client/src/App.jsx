@@ -1,7 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider, } from "react-router-dom";
 import './index.css'
 import Mywallet from './pages/wallets.jsx';
-import ArtistPage from './pages/artistProfile.jsx'
+import ArtistPage from './pages/artist/artistProfile.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Signin from './pages/Signin.jsx'
@@ -11,9 +11,9 @@ import Home from "./pages/Home.jsx";
 import SignupB from "./pages/SignupB.jsx";
 import SigninB from "./pages/SigninB.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
-
-
-
+import Ask from "./pages/faqPages/ask.jsx";
+import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
+import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
 
 const Layout = () => {
   return (
@@ -46,7 +46,10 @@ const router = createBrowserRouter([
       //   path:"/About",
       //   element: <AboutUs />
       // },
-      
+      {
+        path:"/ask",
+        element:<Ask/>,
+      }
     ]
   },
 
@@ -67,7 +70,16 @@ const router = createBrowserRouter([
   element: <SigninB />,
 }, 
 {path:"/form",
-element:<AddProduct/>}
+element:<AddProduct/>},
+{
+    path: "artist/signup",
+    element: <ArtistSignUp />,
+  },
+  {
+    path: "artist/signin",
+    element: <ArtistSignin />,
+  },
+
 
 ]);
 

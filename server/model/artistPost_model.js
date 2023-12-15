@@ -14,6 +14,14 @@ module.exports = (sequelize, DataTypes) => {
         description : {
             type : DataTypes.STRING,
             allowNull : true ,
+        },
+        createdAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        updatedAt: {
+          type: DataTypes.DATE,
+          defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
         }
       },
     );

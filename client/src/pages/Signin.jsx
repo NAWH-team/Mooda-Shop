@@ -10,7 +10,7 @@ const Signin= () => {
         if (password && email){
         const obj = {email:email,password:password}
         axios.post('http://localhost:8080/user/signin',obj).then((res)=>{
-          window.localStorage.setItem('User',res.data)}).then(()=>navigate('/'))
+          window.localStorage.setItem('User',JSON.stringify(res.data))}).then(()=>navigate('/'))
 
           
       }

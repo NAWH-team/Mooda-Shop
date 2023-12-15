@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const MyContext = createContext();
  export const MyContextProvider = ({ children }) => {
+
   
   const [current, setCurrent] = useState(JSON.parse(window.localStorage.getItem("current"))||null);
   console.log(current.type);
