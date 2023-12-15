@@ -1,7 +1,7 @@
 import { useState , useContext} from "react";
 import {useNavigate } from "react-router-dom";
 import axios from 'axios'
-const Signin= () => {
+const ArtistSignin= () => {
   const [email,setEmail]=useState()
   const navigate = useNavigate()
   const [password,setPassword]=useState()
@@ -9,7 +9,8 @@ const Signin= () => {
     try{
         if (password && email){
         const obj = {email:email,password:password}
-        axios.post('http://localhost:8080/user/signin',obj).then((res)=>{
+        axios.post('http://localhost:8080/artist/signin',obj).then((res)=>{
+          console.log(res.data,'heeeere');
           window.localStorage.setItem('User',JSON.stringify(res.data))}).then(()=>navigate('/'))
 
           
@@ -89,5 +90,5 @@ const Signin= () => {
   )
 };
 
-export default Signin;
+export default ArtistSignin;
   

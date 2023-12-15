@@ -34,7 +34,12 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: {
           type: DataTypes.DATE,
           defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        },
+        token:{
+          type:DataTypes.TEXT,
+                   allowNull:false 
         }
+        
       },
     );
     return artist;
