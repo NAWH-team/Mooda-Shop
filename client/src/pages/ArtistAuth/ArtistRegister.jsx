@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useActionData, useNavigate } from "react-router-dom";
 import axios from "axios";
-    import { storage } from "../firebasejsx";
+    import { storage } from "../../firebasejsx";
     import { ref,uploadBytes,getDownloadURL, listAll } from 'firebase/storage'
-    const Signup = () => {
+    const ArtistSignUp = () => {
         const [img,setImg] = useState(null)
         const [imgUrl, setImgUrl] = useState(""); // New state to store image URL
         const [name,setName]=useState("")
@@ -37,7 +37,7 @@ import axios from "axios";
     e.preventDefault();
     var obj ={name,lastName,password,email,img:imgUrl,birthDate}
     try {
-      await axios.post("http://localhost:8080/user/signup", obj);
+      await axios.post("http://localhost:8080/artist/signup", obj);
       navigate("/signin");
     } catch (err) {
       setError(err);
@@ -130,4 +130,4 @@ import axios from "axios";
 }
 
      
-export default Signup 
+export default ArtistSignUp 

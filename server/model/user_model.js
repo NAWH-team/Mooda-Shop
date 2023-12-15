@@ -28,8 +28,8 @@ module.exports = (sequelize, DataTypes) => {
             allowNull : true,
         },
         token:{
-          type:DataTypes.STRING,
-          allowNull:false 
+          type:DataTypes.TEXT,
+                   allowNull:false 
         }
       },
     );
