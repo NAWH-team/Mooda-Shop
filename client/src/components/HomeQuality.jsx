@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const Componet =()=>{
+const HomeQuality =()=>{
 
 
 
@@ -31,4 +31,4 @@ const Componet =()=>{
 }
 
 
-export default Componet
+export default HomeQuality

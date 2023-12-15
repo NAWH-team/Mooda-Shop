@@ -10,14 +10,14 @@ const Navbar  = () => {
         </b>
         <div className="relative bg-[transparent] rounded-[184px] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border shrink-0 flex flex-row items-center justify-start border-[1px] border-solid sm:hidden border-white mr-2.5 ml-2.5 ">
           <input
-            className="[outline:none] font-sf-pro-display text-[14px] items-center px-12 p-[13px] text-white [border:none] w-full h-full [background:transparent] [&_(34:526)]:active:flex-1 lg:flex-1 lg:items-center lg:justify-start lg:pl-10 lg:box-border md:w-[100%] md:flex-row md:items-center md:justify-start md:pl-[34px] md:pr-1.5 md:box-border sm:hidden "
+            className="[outline:none] font-sf-pro-display text-[14px] items-center px-10 text-white [border:none] w-full h-full [background:transparent] [&_(34:526)]:active:flex-1 lg:flex-1 lg:items-center lg:justify-start lg:pl-10 lg:box-border md:w-[100%] md:flex-row md:items-center md:justify-start md:pl-[34px] md:pr-1.5 md:box-border sm:hidden "
             placeholder="Search Items, Fashion, Collection and Users"
             type="text"
             value={searchBarValue}
             onChange={(event) => setSearchBarValue(event.target.value)}
           />
           <img
-            className="absolute w-[22px] h-[21px] object-cover z-[2] left-[13px] top-[13px] sm:hidden"
+            className="absolute w-[22px] h-[21px] object-cover z-[2] left-[10px] top-[7px] sm:hidden"
             alt=""
             src="./src/public/Vector.png"
           />
@@ -60,13 +60,21 @@ const Navbar  = () => {
                 Wallet
               </div>
             </button>
+            <button className="cursor-pointer [border:none] p-0 bg-[transparent]  hidden flex-col items-center justify-between  sm:flex hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))]">
+          <img
+            className="absolute top-[13px] left-[90px] w-[22px] h-[22px] object-cover  "
+            alt=""
+            src="./src/public/Vector.png"
+          />
+          </button>
             <img
               className="absolute top-[0px] left-[128px] w-[69px] h-11 object-cover"
               alt=""
               src="./src/public/group-427319083@2x.png"
             />
           </div>
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[12px] left-[208px] h-5 hidden flex-col items-center justify-between md:flex sm:flex">
+          
+          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[12px] left-[208px] h-5 hidden flex-col items-center justify-between md:flex sm:flex hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] ">
             <img
               className="relative w-7 h-5 object-cover"
               alt=""
