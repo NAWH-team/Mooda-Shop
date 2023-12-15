@@ -1,5 +1,5 @@
 import React from "react";
-
+import Componet from "../components/Componets";
 
 
 
@@ -8,7 +8,7 @@ const Home = () => {
 
     return (
         <div>
-            <p>home</p>
+            <Componet/>
         </div>
     )
 }
