@@ -6,8 +6,12 @@ import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Signin from './pages/Signin.jsx'
 import Signup from './pages/Signup.jsx'
-// import Login from './pages/Login.jsx'
 import Home from "./pages/Home.jsx";
+// import AboutUs from "./pages/AboutUs.jsx";
+import SignupB from "./pages/SignupB.jsx";
+import SigninB from "./pages/SigninB.jsx";
+import AddProduct from "./pages/AddProduct.jsx";
+
 
 
 
@@ -37,7 +41,12 @@ const router = createBrowserRouter([
       {
         path: "/ArtistPage",
         element: <ArtistPage />,
-      }
+      },
+      // {
+      //   path:"/About",
+      //   element: <AboutUs />
+      // },
+      
     ]
   },
 
@@ -49,6 +58,16 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup />,
   },
+  {
+    path: "/signupB",
+    element: <SignupB />,
+  },
+  {
+  path: "/signinB",
+  element: <SigninB />,
+}, 
+{path:"/form",
+element:<AddProduct/>}
 
 ]);
 

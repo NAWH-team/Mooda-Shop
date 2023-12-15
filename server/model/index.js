@@ -63,4 +63,6 @@ db.artistPost.belongsTo(db.artist)
 
 
 
+
+
 module.exports = db;

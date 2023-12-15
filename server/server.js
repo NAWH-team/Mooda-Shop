@@ -14,6 +14,7 @@ app.use(cors());
 // user Routes
 app.use('/user',require('./routes/user_routes.js'))
 app.use('/wallet',require('./routes/wallet_router.js'))
+app.use('/brand',require('./routes/brand_routes'))
 
 
 

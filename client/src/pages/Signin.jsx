@@ -43,7 +43,7 @@ const Signin= () => {
          onChange={(event)=>setEmail(event.target.value)}
           type="text"
           placeholder="Email Address"
-          className="w-[459px] h-[31px] rounded bg-gray-200 p-2 mb-2 outline-none"
+          className="w-[459px] h-[31px] rounded bg-gray-200 p-2 mb-2 outline-none bg-transparent"
         />
         <div className="w-[459px] h-[0px] left-0 top-[31px] absolute border border-white border-opacity-50"></div>
       </div>
@@ -52,7 +52,7 @@ const Signin= () => {
         onChange={(event)=>setPassword(event.target.value)}
           type="password"
           placeholder="Password"
-          className="w-[459px] h-[31px] rounded bg-gray-200 p-2 mb-2 outline-none"
+          className="w-[459px] h-[31px] rounded bg-gray-200 p-2 mb-2 outline-none bg-transparent"
         />
         <div className='relative left-32 top-8'> 
 
