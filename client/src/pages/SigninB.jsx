@@ -32,40 +32,67 @@ const SigninB = () => {
       <div className="left-[80px] top-[555px] absolute text-center text-white text-[28px] font-bold font-sans leading-[39px] tracking-tight">
         Explore the world of meta fashion
       </div>
-
+      
       <div className="left-[750px] top-[25px] absolute ">
-        <div className="text-center text-white text-3xl  font-extrabold font-['SF Pro Display'] tracking-tight">Sign In</div>
-        <div className='relative top-12'>
-          <span className="text-white text-lg font-normal font-sans tracking-tight ">New user?</span>
-          <a className="text-indigo-500 text-lg font-medium font-sans tracking-tight" href="/signupB">Create an account</a>
-        </div>
-      </div>
+      <div className="text-center text-white text-3xl  font-extrabold font-['SF Pro Display'] tracking-tight">Sign In</div>
+      <div className='relative top-12'>
 
+        <span className="text-white text-lg font-normal font-sans tracking-tight ">New user?</span>
+        <a className="text-indigo-500 text-lg font-medium font-sans tracking-tight" href="/signup">
+          Create an account
+        </a>
+      </div>
+      </div>
+      
       <div className="w-[459px] h-[31px] left-[640px] top-[196px] absolute">
         <input
-          onChange={(event) => setEmail(event.target.value)}
+         onChange={(event)=>setEmail(event.target.value)}
           type="text"
           placeholder="Email Address"
           className="w-[459px] h-[31px] rounded bg-gray-200 p-2 mb-2 outline-none"
         />
         <div className="w-[459px] h-[0px] left-0 top-[31px] absolute border border-white border-opacity-50"></div>
       </div>
-
       <div className="left-[640px] top-[275px] absolute">
         <input
-          onChange={(event) => setPassword(event.target.value)}
+        onChange={(event)=>setPassword(event.target.value)}
           type="password"
           placeholder="Password"
           className="w-[459px] h-[31px] rounded bg-gray-200 p-2 mb-2 outline-none"
         />
-        <div className='relative left-32 top-8'>
-          <button onClick={login} className="w-[200px] h-[40px] bg-indigo-500 rounded p-2 text-lg text-white font-medium font-sans">
-            Login
-          </button>
+        <div className='relative left-32 top-8'> 
+
+        <button onClick={Login}
+          className="w-[200px] h-[40px] bg-indigo-500 rounded p-2 text-lg text-white font-medium font-sans"
+          >
+          Login 
+        </button>
+        <div className=" relative left-24 top-4 text-white text-lg font-normal font-sans tracking-tight">
+        Or
+        
+      </div>
+          </div>
+        
+      </div>
+      <div className="left-[640px] bottom-10 relative">
+        <div className="w-[459px] h-[72px] mb-2 bg-red-500 rounded-[171px] border border-white">
+          <div className="flex items-center justify-center h-full text-white text-lg font-medium font-sans tracking-tight">
+            Continue With Google
+          </div>
+        </div>
+        <div className="w-[459px] h-[72px] mb-2 bg-blue-500 rounded-[171px] border border-white">
+          <div className="flex items-center justify-center h-full text-white text-lg font-medium font-sans tracking-tight">
+            Continue With Facebook
+          </div>
+        </div>
+        <div className="w-[459px] h-[72px] bg-black rounded-[171px] border border-white">
+          <div className="flex items-center justify-center h-full text-white text-lg font-medium font-sans tracking-tight">
+            Continue With Apple
+          </div>
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default SigninB;

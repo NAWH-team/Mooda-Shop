@@ -9,15 +9,17 @@ const ArtistSignin= () => {
     try{
         if (password && email){
         const obj = {email:email,password:password}
-        axios.post('http://localhost:8080/artist/signin',obj).then((res)=>{
-          console.log(res.data,'heeeere');
-          window.localStorage.setItem('User',JSON.stringify(res.data))}).then(()=>navigate('/'))
-
-          
-      }
-    }catch(err){
-      alert('Register first')
-    }
+        axios.post('http://localhost:8080/artist/signin',obj).then((res) => {
+            
+        res.data.existingArtist.type = "artist"
+        window.localStorage.setItem('current',JSON.stringify(res.data.existingArtist));
+        console.log(res.data);
+      })
+      .then(() => navigate('/ArtistPage'));
+  }
+} catch (err) {
+  alert('Register first');
+}
     }
   
   return (
