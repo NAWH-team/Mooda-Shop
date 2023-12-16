@@ -14,13 +14,17 @@ import AddProduct from "./pages/AddProduct.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
- import Favorite from "./pages/favorites.jsx";
+import UpcomingCreator from "./components/UpcomingCreator.jsx";
+ import ArtistPageView from "./pages/artist/artistView.jsx";
+ import { useContext } from "react";
+ import { MyContext } from "./myContext.jsx";
+
 const Layout = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
@@ -46,10 +50,10 @@ const router = createBrowserRouter([
         path:"/ask",
         element:<Ask/>,
       },
-      {
-        path:"/static",
-        element:<Static/>,
-      }
+      // {
+      //   path:"/static",
+      //   element:<Static/>,
+      // }
      
     ]
   },
@@ -80,14 +84,15 @@ element:<AddProduct/>},
     path: "artist/signin",
     element: <ArtistSignin/>
   },
+
   {
-    path: "/favorites",
-    element: <Favorite/>,
+    path: "/artist/view/*",
+    element: <ArtistPageView/>,
   },
  
   
-
 ]);
+console.log(MyContext);
 
 function App() {
   return (

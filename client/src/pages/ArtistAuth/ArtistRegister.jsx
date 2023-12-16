@@ -28,138 +28,153 @@ const ArtistSignUp = () => {
   };
 
   return (
-    <div className="  lg:flex lg:flex-col-2 ">
-      <div className="lg:block hidden m-20 ">
-        <img
-          class="w-[243.52px] h-[477px]"
-          src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-        />
-      </div>
-      <div className="float-right lg:m-40 relative bottom-20">
-        <div class="w-[527px] h-[699px] bg-white bg-opacity-20 rounded-[10px]">
-          <div className="float-left m-8 lg:relative relative left-40 lg:left-0">
-            <div class=" text-white text-3xl font-extrabold font-['SF Pro Display'] tracking-tight">
+    <div className="flex flex-col-1">
+      <img
+        class=" w-[302px] h-[477px] lg:relative lg:left-20 lg:block hidden lg:top-32"
+        src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+      />
+      <div className="flex justify-center items-center lg:relative lg:left-[300px] top-20">
+        <div className=" bg-black h-[900px] w-[370px] lg:w-[527px] lg:h-[899px] bg-opacity-20 rounded-[10px]">
+          <div className="flex flex-col m-8 float-left">
+            <div class="text-center relative right-16 text-white text-3xl font-extrabold font-['SF Pro Display'] tracking-tight float-left">
               Sign Up
             </div>
-            <div>
-              <span className="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative">
-                Already a user?
+            <div className="relative top-10">
+              <span className=" text-white text-lg font-normal font-['SF Pro Display'] tracking-tight">
+                Already a Member?
               </span>
-              <span className="text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight">
+              <span onClick={()=>navigate('/artist/signin')} className=" hover:cursor-pointer text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight">
                 {" "}
-                Sign in
+                Sign In
               </span>
             </div>
+            <div className="relative top-24 right-10">
+  
+            <div className="m-8">
+  
+  <div class="text-white text-[18px]  lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
+    Email Address
+  </div>
+  <div className="">
+  
+  <input
+  onChange={(e)=>setEmail(e.target.value)}
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
+    </div>
+  </div>
+  <div className="flex flex-col-2 w-40">
+    
+  <div className="m-8">
+  
+  <div class="text-white text-[18px]  lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
+    Name
+  </div>
+  <div className="">
+  
+  <input
+    onChange={(e)=>setName(e.target.value)}
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[100px] lg:w-[170px] h-[0px] border border-white border-opacity-50 relative "></div>
+    </div>
+  </div>
+  <div className="m-8">
+  
+  <div class="text-white text-[18px]  lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
+    Last Name
+  </div>
+  <div className="">
+  
+  <input
+  onChange={(e)=>setlastName(e.target.value)}
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[100px] lg:w-[170px] h-[0px] border border-white border-opacity-50 relative "></div>
+    </div>
+  </div>
+  
+  </div>
+  
+  <div className="m-8">
+  
+  <div class="text-white text-[18px]  lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
+  Password 
+  </div>
+  <div className="">
+  
+  <input
+  onChange={(e)=>setPassword(e.target.value)}
+  type="password"
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
+    </div>
+    <div className="relative top-12">
+    <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight">Date Of Birth</div>
+      <div className="flex flex-col-3 relative top-10 gap-4 lg:gap-12">
+        <div>
+  
+      <input
+      onChange={(e)=>setMonth(e.target.value)}
+     placeholder="Month"
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
+  </div>
+        <div>
+  
+      <input
+      onChange={(e)=>setDay(e.target.value)}
+     placeholder="Day"
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
+  </div>
+        <div>
+  
+      <input
+      onChange={(e)=>setYear(e.target.value)}
+     placeholder="Year"
+  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  />
+    <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
+  </div>
+  
+  
+      </div>
+      <button onClick={handelSubmit} class=" float-right relative top-32 right-20 lg:relative lg:top-20 w-[175px] h-[47px] px-5 py-2.5 bg-gradient-to-bl from-purple-500 to-violet-700 rounded-[121px] justify-center items-center gap-2.5 inline-flex">
+      <div class="text-white text-[17px] font-medium font-['Poppins']">Create Account</div>
+  </button>
+    </div>
+  </div>
+  
+  
+  </div>
+  
           </div>
-          <div></div>
-
-          <div class=" lg:left-10 relative left-40 lg:relative top-10  ">
-            <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative top-24 right-60">
-              Email Address
+          
+  
+    
+            <div>
+  
+          
+  
+  
+        </div>
             </div>
-            <input
-             onChange={(e)=>setEmail(e.target.value)}
-              type="text"
-              name="brand"
-              id="brand"
-              class=" w-[350px] h-[40px] relative top-2  border border-white border-opacity-0 text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block  p-2.5 bg-red-200 bg-opacity-0 dark:border-white-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            />
-            <div class="w-[350px]  h-[0px] border border-white border-opacity-50 "></div>
-          </div>
-          <div className="relative bottom-8 flex flex-col-2 gap-20">
-          <div class=" lg:left-10 relative left-32 lg:relative top-24  ">
-            <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative ">
-              Name
-            </div>
-            <input
-            onChange={(e)=>setName(e.target.value)}
-              type="text"
-              name="brand"
-              id="brand"
-              class=" w-[100px] relative  border border-white border-opacity-0 text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block  p-2.5 bg-red-200 bg-opacity-0 dark:border-white-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            />
-            <div class="w-[100px]  h-[0px] border border-white border-opacity-50 "></div>
-          </div>
-          <div class=" lg:left-10 relative left-32 lg:relative top-24  ">
-            <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative ">
-              LastName
-            </div>
-            <input
-            onChange={(e)=>setlastName(e.target.value)}
-              type="text"
-              name="brand"
-              id="brand"
-              class=" w-[100px] relative  border border-white border-opacity-0 text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block  p-2.5 bg-red-200 bg-opacity-0 dark:border-white-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            />
-            <div class="w-[100px]  h-[0px] border border-white border-opacity-50 "></div>
-          </div>
-          </div>
-
-          <div class=" lg:left-10 relative left-32 lg:relative top-24  ">
-            <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative ">
-              Password
-            </div>
-            <input
-            onChange={(e)=>setPassword(e.target.value)}
-              type="password"
-              name="brand"
-              id="brand"
-              class=" w-[350px] relative top-2  border border-white border-opacity-0 text-gray-900 text-sm  focus:ring-primary-600 focus:border-primary-600 block  p-2.5 bg-red-200 bg-opacity-0 dark:border-white-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            />
-            <div class="w-[350px]  h-[0px] border border-white border-opacity-50 "></div>
-          </div>
-          <div className="flex flex-col lg:left-10 relative left-32 lg:relative top-32">
-            <div class="    ">
-              <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative ">
-                Month
-              </div>
-              <div className="w-20 flex flex-col-2 gap-16">
-                <select
-                onChange={(e)=>setMonth(e.target.value)}
-                  id="category"
-                  class=" bg-red-50 border border-gray-300 text-red-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2.5 dark:bg-opacity-20 dark:bg-red-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                >
-                  <option value="January">January</option>
-                  <option value="February">February</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
-                </select>
-                <div>
             
-                <input 
-                                 onChange={(e)=>setDay(e.target.value)}
-
-                className="w-20 bg-white bg-opacity-0"/>
-                <div class="w-[90px]  h-[0px] border border-white border-opacity-50 "></div>
-
-                </div>
-                <div>
-
-                <input
-                onChange={(e)=>setYear(e.target.value)}
-                  className="w-20 bg-white bg-opacity-0 border border-opacity-0"/>
-                <div class="w-[90px]  h-[0px] border border-white border-opacity-50 "></div>
-                </div>
-              </div>
-             
-              <div class="w-[100px]  h-[0px] border border-white border-opacity-50 "></div>
-            </div>
-          </div>
-
-          <button onClick={handelSubmit} class="text-white text-base font-normal font-['Poppins'] float-right m-8 relative top-28 ">
-            Create An Account
-          </button>
         </div>
       </div>
-    </div>
+
   );
 };
 

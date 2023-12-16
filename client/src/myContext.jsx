@@ -5,7 +5,7 @@ export const MyContext = createContext();
 
   
   const [current, setCurrent] = useState(JSON.parse(window.localStorage.getItem("current"))||null);
-  console.log(current.type);
+  const [viewArtist, setViewArtist] = useState(JSON.parse(window.localStorage.getItem('view')));
   
   const login =async (input)=>{
     const res= await axios.post(`http://127.0.0.1:5000/api/${current.type}/signin`,input)
@@ -19,7 +19,7 @@ export const MyContext = createContext();
      localStorage.setItem(current,JSON.stringify(current))
  },[current])
   return (
-    <MyContext.Provider value={{login,logout,current }}>
+    <MyContext.Provider value={{login,logout,current,viewArtist,setViewArtist }}>
         {children}
     </MyContext.Provider>
   );
