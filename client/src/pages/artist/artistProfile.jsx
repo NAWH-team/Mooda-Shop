@@ -1,5 +1,5 @@
 import { FaCamera } from "react-icons/fa";
-import FAQ from "../faqPages/faq";
+// import FAQ from "../faqPages/faq";
 import { useEffect, useState , useContext } from "react";
 import axios from "axios";
 import NoPost from '../../assets/PROFILEPAGE/noPos.png'
