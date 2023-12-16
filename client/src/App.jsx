@@ -23,9 +23,9 @@ import UpcomingCreator from "./components/UpcomingCreator.jsx";
 const Layout = () => {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
