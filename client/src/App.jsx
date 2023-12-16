@@ -14,13 +14,13 @@ import AddProduct from "./pages/AddProduct.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
-
+ import Favorite from "./pages/favorites.jsx";
 const Layout = () => {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
@@ -42,14 +42,15 @@ const router = createBrowserRouter([
         path: "/ArtistPage",
         element: <ArtistPage />,
       },
-      // {
-      //   path:"/About",
-      //   element: <AboutUs />
-      // },
       {
         path:"/ask",
         element:<Ask/>,
+      },
+      {
+        path:"/static",
+        element:<Static/>,
       }
+     
     ]
   },
 
@@ -77,8 +78,13 @@ element:<AddProduct/>},
   },
   {
     path: "artist/signin",
-    element: <ArtistSignin/>,
+    element: <ArtistSignin/>
   },
+  {
+    path: "/favorites",
+    element: <Favorite/>,
+  },
+ 
   
 
 ]);
