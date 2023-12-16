@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    './src/**/*.html',
+    './src/**/*.js',
+    './src/**/*.jsx',
+    // Add any other file extensions or paths your project uses
+  ],
   theme: {
+
     extend: {
       colors: {
         gray: {
@@ -27,10 +33,10 @@ module.exports = {
         "sf-pro-display": "'SF Pro Display'",
         roboto: "Roboto",
       },
-      borderRadius: {
-        "5xs-3": "7.3px",
-        "8xs": "5px",
-        "3xs": "10px",
+     borderRadius: {
+        "5xs-33": "7.3px",
+        "8xss": "5px",
+        "3xss": "10px",
         
       },
     },
@@ -55,10 +61,11 @@ module.exports = {
       },
     },
   },
-  corePlugins: {
-    preflight: false,
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
-};
+//   corePlugins: {
+//     preflight: false,
+
+//   },
+//   plugins: [
+//     require('@tailwindcss/forms'),
+//   ],
+}

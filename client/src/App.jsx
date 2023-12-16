@@ -7,17 +7,25 @@ import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Signin from './pages/Signin.jsx'
 import Signup from './pages/Signup.jsx'
-// import Login from './pages/Login.jsx'
 import Home from "./pages/Home.jsx";
+// import AboutUs from "./pages/AboutUs.jsx";
+import SignupB from "./pages/SignupB.jsx";
+import SigninB from "./pages/SigninB.jsx";
+import AddProduct from "./pages/AddProduct.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
+import UpcomingCreator from "./components/UpcomingCreator.jsx";
+ import ArtistPageView from "./pages/artist/artistView.jsx";
+ import { useContext } from "react";
+ import { MyContext } from "./myContext.jsx";
+
 const Layout = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
@@ -42,7 +50,11 @@ const router = createBrowserRouter([
       {
         path:"/ask",
         element:<Ask/>,
-      }
+      },
+      // {
+      //   path:"/static",
+      //   element:<Static/>,
+      // }
      
     ]
   },
@@ -56,16 +68,32 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
+    path: "/signupB",
+    element: <SignupB />,
+  },
+  {
+  path: "/signinB",
+  element: <SigninB />,
+}, 
+{path:"/form",
+element:<AddProduct/>},
+{
     path: "artist/signup",
     element: <ArtistSignUp />,
   },
   {
     path: "artist/signin",
-    element: <ArtistSignin />,
+    element: <ArtistSignin/>
   },
 
-
+  {
+    path: "/artist/view/*",
+    element: <ArtistPageView/>,
+  },
+ 
+  
 ]);
+console.log(MyContext);
 
 function App() {
   return (
