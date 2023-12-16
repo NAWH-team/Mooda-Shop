@@ -1,19 +1,22 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getStorage} from 'firebase/storage'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth"; // Import the auth functions
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC5ZqTbbDOUDuLe-uIt87ESBcWqGkxjMf8",
-  authDomain: "mooda-shoop.firebaseapp.com",
-  projectId: "mooda-shoop",
-  storageBucket: "mooda-shoop.appspot.com",
-  messagingSenderId: "395438017985",
-  appId: "1:395438017985:web:7234bfa6dcbdf7baab7340"
+  apiKey: "AIzaSyBEMhWM_F78PHnZ_4n4h2BXkRrh-Wll2JE",
+  authDomain: "mooda-d151c.firebaseapp.com",
+  projectId: "mooda-d151c",
+  storageBucket: "mooda-d151c.appspot.com",
+  messagingSenderId: "290919450302",
+  appId: "1:290919450302:web:0a8e53cd14ce1097e180ef",
+  measurementId: "G-H93JBN4PQ4",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const storage=getStorage(app)
+const auth = getAuth(app); // Initialize the authentication module
+const storage = getStorage(app);
+
+export { storage, auth };

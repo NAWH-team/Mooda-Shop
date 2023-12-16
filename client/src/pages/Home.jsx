@@ -1,7 +1,6 @@
 import React from "react";
 import HomeQuality from "../components/HomeQuality";
-
-
+import UpcomingCreator from "../components/UpcomingCreator";
 
 const Home = () => {
 
@@ -9,6 +8,7 @@ const Home = () => {
     return (
         <div>
             <HomeQuality/>
+            <UpcomingCreator/>
         </div>
     )
 }
