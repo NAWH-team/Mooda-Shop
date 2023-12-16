@@ -29,6 +29,14 @@ app.use('/faq',require('./routes/FAQ_routes.js'))
 
   app.use('/artist',require('./routes/artist_routes.js'))
 
+
+
+  // Products
+
+  app.use('/product',require('./routes/Products_routers.js'))
+
+
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });

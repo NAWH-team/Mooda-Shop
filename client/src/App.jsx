@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider, } from "react-router-dom";
 import './index.css'
+import './App.css'
 import Mywallet from './pages/wallets.jsx';
 import ArtistPage from './pages/artist/artistProfile.jsx'
 import Navbar from './components/Navbar.jsx'

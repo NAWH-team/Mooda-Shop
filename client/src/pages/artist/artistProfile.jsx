@@ -14,6 +14,7 @@ const ArtistPage = () => {
  console.log(window.localStorage.getItem('User'));
   const [artist,setArtist]= useState(jwtDecode(Token))
    console.log(id);
+
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -22,7 +23,7 @@ const ArtistPage = () => {
       } catch (err) {}
     };
     getPosts();
-  }, []);
+  }, [prduc]);
   console.log(posts);
 
   const Edit = ()=>{
