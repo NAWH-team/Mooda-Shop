@@ -1,5 +1,5 @@
 import { FaCamera } from "react-icons/fa";
-// import FAQ from "../faqPages/faq";
+// import FAQ from "../faqPages/faq"; 
 import { useEffect, useState , useContext } from "react";
 import axios from "axios";
 import NoPost from '../../assets/PROFILEPAGE/noPos.png'
@@ -10,10 +10,11 @@ import ArtistEdit from "./artistEdit";
 import { MdEdit } from "react-icons/md";
 
 const ArtistPage = () => {
+  
   const [view , setView] = useState()
   const [posts, setPosts] = useState([]);
- const {Token,id}  = JSON.parse(window.localStorage.getItem('User'))
-  const [artist,setArtist]= useState(jwtDecode(Token))
+  const {Token ,id}  = JSON.parse(window.localStorage.getItem('User'))
+  const [artist,setArtist]= useState( jwtDecode(Token))
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -26,13 +27,12 @@ const ArtistPage = () => {
   const Edit = ()=>{
     setView('edit')
   }
-console.log(posts);  
   return (
     <div>
       <div className="lg:m-32 m-3 ">
          
        <img 
-       src="https://t3.ftcdn.net/jpg/05/96/09/62/360_F_596096212_DACXTnAgcHxxJmtyTxKe03SMi7LYrOgJ.jpg"
+       src={artist.cover}
        className= "lg:w-[1040px]  lg:h-[355px]   bg-black bg-opacity-50 rounded-[5px]"/>
        <button  onClick={()=>setView('edit')} class=" relative bottom-14 float-right right-5  w-[39px] h-[39px] p-2.5 bg-red-500 rounded-[400px] justify-center items-center text-white gap-2.5 inline-flex">
         <MdEdit  />
@@ -41,11 +41,10 @@ console.log(posts);
         <MdEdit  />  post
        </button>
        
-      <div className=" grid justify-items-center bottom-12 relative left-6">
-      <img className="w-[120px] h-[120px]  rounded-full border-2  border-white" src={artist.img}/>
-      <h1 className=" text-white  text-[28px] font-semibold font-['SF Pro Display']">{artist.name} {artist.lastName}</h1>
-      <h2 className=" text-center lg:text-xs text-white text-opacity-80 text-base font-normal font-['SF Pro Display'] leading-[25px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor, consectetur purus amet, accumsan nulla. Ut urna placerat morbi cursus pulvinar nunc adipiscing. Tortor, consectetur purus amet,
-       accumsan nulla. Ut urna placerat morbi cursus pulvinar nunc adipiscing.</h2>
+      <div className=" grid justify-items-center bottom-12 relative left-10 lg:relative lg:left-24">
+      <img className="lg:w-[120px] lg:h-[120px] h-[80px] w-[80px]  rounded-full border-2  border-white" src={artist.img}/>
+      <h1 className=" text-white text-[18px] lg:text-[28px] font-semibold font-['SF Pro Display']">{artist.name} {artist.lastName}</h1>
+      <h2 className=" text-center lg:text-xs text-white text-opacity-80 text-base font-normal font-['SF Pro Display'] leading-[25px]">{artist.bio}</h2>
       </div>
       </div>
       <div className=" relative top-80px">
@@ -72,7 +71,14 @@ console.log(posts);
       <a class=" p-4 left-52 bottom-10 relative text-indigo-500 text-base font-semibold font-['SF Pro Display'] tracking-tight">See All Photos</a>
         </div>
         <div className="p-4 relative left-1 flex flex-wrap gap-2">
-        <img class="w-[95px] h-[91px] rounded" src="https://via.placeholder.com/95x91" />
+          { posts.slice(0,8).map((e)=>{
+            return (
+              <img class="w-[95px] h-[91px] rounded" src={e.img} />
+            )
+          })
+ 
+            
+          }
 
         </div>
       </div>
@@ -85,9 +91,9 @@ console.log(posts);
        posts.map((e)=>{
         return (
           <div className="lg:w-[800px] lg:h-[729px] relative h-[600px] w-[200px] left-[10px] bottom-20 lg:float- lg:relative lg:bottom-[380px] lg:left-[400px] " >
-            <div className="flex flex-wrap ">
+             <div className="flex flex-wrap ">
             <img class="w-[43px] h-[43px] rounded-full" src={artist.img}/> 
-            <div class="text-white text-xl font-semibold font-['SF Pro Display']">Farhan Khan</div>
+            <div class="text-white text-xl font-semibold font-['SF Pro Display']">{artist.name}  {artist.lastName}</div>
             <div class="text-white text-opacity-50 text-base font-normal font-['SF Pro Display']">4m</div>  
             <div className="place-items-center relative top-10 "> 
             <div class="text-white text-base font-medium font-['SF Pro Display'] break-words  w-[370px] ">{e.title}</div>
@@ -97,16 +103,11 @@ console.log(posts);
             </div>
 
               </div>  
-                          {/* <div className="flex flex-nowrap relative top-0 gap-2   ">
-         <img class="w-[43px]  h-[43px] rounded-full border-white border" src={artist.img} />
-         <h1 class="w-[300px] relative left-2.5  top-0 text-white text-xl font-semibold font-['SF Pro Display']  inline-flex">{artist.name}{''}{artist.lastName}</h1>
-         <h4 class="text-white relative left-12 bottom-4 text-opacity-50 text-base font-normal font-['SF Pro Display']">{e.createdAt.substring(0,10)}</h4>
-         <h4 className="  lg:relative lg:top-32 relative left-[20px] top-20 text-white w-[200px] break-words ">{e.title}</h4>
-         <img class="relative right-[420px] top-80 h-[500px] " src={e.img} /> */}
-          </div>
+                         
+          </div> 
         
  
-      // </div>
+  </div>
         )
        })
     }

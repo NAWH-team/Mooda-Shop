@@ -48,7 +48,6 @@ const CreatePost = ({ user }) => {
                 aritstId: user,
             });
 
-            console.log(data);
             window.location.reload()
         } catch (err) {
             console.error(err);
