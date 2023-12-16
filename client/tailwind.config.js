@@ -3,30 +3,30 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-        gray: {
-          "100": "rgba(255, 255, 255, 0.77)",
-          "200": "rgba(255, 255, 255, 0.47)",
-          "300": "rgba(255, 255, 255, 0.7)",
-        },
-        white: "#fff",
-        red: "#ff2525",  
-        tomato: "#ff3535",
-        gainsboro: {
-          "100": "rgba(230, 230, 230, 0.75)",
-          "200": "rgba(222, 222, 222, 0.76)",
-        },
-        lightgray: "#cfcfcf",
-      },
+      // colors: {
+      //   gray: {
+      //     "100": "rgba(255, 255, 255, 0.77)",
+      //     "200": "rgba(255, 255, 255, 0.47)",
+      //     "300": "rgba(255, 255, 255, 0.7)",
+      //   },
+      //   white: "#fff",
+      //   red: "#ff2525",  
+      //   tomato: "#ff3535",
+      //   // gainsboro: {
+      //   //   "100": "rgba(230, 230, 230, 0.75)",
+      //   //   "200": "rgba(222, 222, 222, 0.76)",
+      //   // },
+      //   lightgray: "#cfcfcf",
+      // },
       spacing: {},
       fontFamily: {
         poppins: "Poppins",
         "sf-pro-display": "'SF Pro Display'",
         roboto: "Roboto",
       },
-      borderRadius: {
-        "3xs": "10px",
-      },
+      // borderRadius: {
+      //   "3xs": "10px",
+      // },
     },
     fontSize: {
       mini: "15px",
@@ -34,21 +34,21 @@ module.exports = {
       base: "16px",
       inherit: "inherit",
     },
-    screens: {
-      lg: {
-        max: "1200px",
-      },
-      md: {
-        max: "960px",
-      },
-      sm: {
-        max: "420px",
-      },
+    // screens: {
+    //   lg: {
+    //     max: "1200px",
+    //   },
+    //   md: {
+    //     max: "960px",
+    //   },
+    //   sm: {
+    //     max: "420px",
+    //   },
     },
-  },
-  corePlugins: {
-    preflight: false,
-  },
+  // },
+  // corePlugins: {
+  //   preflight: false,
+  // },
   plugins: [
     require('@tailwindcss/forms'),
   ],

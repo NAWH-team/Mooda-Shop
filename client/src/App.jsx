@@ -18,9 +18,9 @@ import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
 const Layout = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
@@ -77,9 +77,9 @@ element:<AddProduct/>},
   },
   {
     path: "artist/signin",
-    element: <ArtistSignin />,
+    element: <ArtistSignin/>,
   },
-
+  
 
 ]);
 
