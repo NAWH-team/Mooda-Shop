@@ -59,7 +59,7 @@ module.exports = {
     require('@tailwindcss/forms'),
   ],
 };
-    extend: {},
+   extend: {},
   },
   plugins: [],
 }
