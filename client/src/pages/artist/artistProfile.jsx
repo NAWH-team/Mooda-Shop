@@ -29,13 +29,16 @@ const ArtistPage = () => {
   const Edit = () => {
     setView("edit");
   };
+  console.log(artist);
   return (
-    <div className="flex-col flex relative  jusify-center">
+    <div className="flex-col flex relative  jusify-center  ">
       < div className="">
         <div className="flex flex-col items-center">
         <div class=" bg-opacity-50 rounded-[5px]">
-          <img src={artist.cover}/>
-          <div className="flex flex-col float-right relative bottom-20 ">
+          <img
+          className="w-[900px] h-[300px]"
+           src={artist.img}/>
+          <div className="flex  flex-col float-right relative bottom-20 ">
 
           <button onClick={ ()=>
             setView('edit')
@@ -48,7 +51,7 @@ const ArtistPage = () => {
           </div>
           <button
           onClick={()=>setView('create')}
-           className="float-right w-[100px] h-[30px] rounded-[20px] text-white  bg-white bg-opacity-10 flex flex-col-2  ">
+           className="float-left w-[100px] h-[30px] rounded-[20px] text-white  bg-white bg-opacity-10 flex flex-col-2  ">
             
               <MdEdit  /> Post
              
@@ -58,7 +61,7 @@ const ArtistPage = () => {
         <div className="relative bottom-20 items-center flex flex-col">
 
         <img class="w-[120px] h-[120px] rounded-full border-2 border-white" src={artist.img} />  
-        <h1 className="text-xl text-white">Adem Mlayah</h1>
+        <h1 className="text-xl text-white">{artist.name} {artist.lastName}</h1>
         </div>
         </div>
 
@@ -95,13 +98,13 @@ const ArtistPage = () => {
         </div>
         {/* post */}
       </div>
-      <div className=" h-[500px] w-[400px] ">
+      <div className=" flex flex-col gap-10  ">
         {posts &&
           posts.map((e) => {
             return (
-              <div className=" flex flex-col items-center  lg:w-[700px] lg:h-[500px] ">
-                <div className="lg:w-[700px] relative  w-[350px] flex flex-col  lg:gap-10">
-                  <div className="flex-wrap flex gap-5">
+              <div className=" flex flex-col items-center   ">
+                <div className=" relative right-16   flex flex-col   gap-10">
+                  <div className="flex-wrap flex gap-3">
                   <img class="w-[63px] h-[63px] rounded-full" src={artist.img} />  
                   <h1 class="text-white text-xl font-semibold font-['SF Pro Display']">{artist.name} {artist.lastName}</h1>     
                   <div class="text-white text-opacity-50 text-base font-normal font-['SF Pro Display']">4m</div>
@@ -111,7 +114,7 @@ const ArtistPage = () => {
                     <div className=" flex flex-col items-center gap-10">
                     <div class="text-white text-base font-medium font-['SF Pro Display']">{e.title}</div>
                     <div class="text-white text-base font-medium font-['SF Pro Display']">{e.description}</div>
-                    <img class="rounded-[5px]" src={e.img} />
+                    <img class="rounded-[5px] h-[450px] w-[500px]" src={e.img} />
                     </div>
                     
                

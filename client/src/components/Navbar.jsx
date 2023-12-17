@@ -29,7 +29,9 @@ const Navbar  = () => {
           />
         </div>
         <div className="w-[510px] h-[19px] flex flex-row items-center justify-between pc:pl-[3px] pc:pr-[3px] pc:box-border ipad:hidden">
-        <button className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base font-semibold font-sf-pro-display text-white text-left inline-block hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] active:mix-blend-overlay active:text-lightgray">
+        <button
+        onClick={()=>navigate('/')}
+         className="cursor-pointer [border:none] p-0 bg-[transparent] relative text-base font-semibold font-sf-pro-display text-white text-left inline-block hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] active:mix-blend-overlay active:text-lightgray">
             Home
           </button>
           <div className="relative w-[66.5px] h-[19px]">
@@ -75,7 +77,9 @@ const Navbar  = () => {
             src="./src/public/Vector.png"
           />
           </button>
-          {user.status === 'aritst' && 
+          {user.status
+          ===
+"artist" && 
             <img
             onClick={()=>navigate('/ArtistPage')}
               className="absolute top-[0px] left-[128px] rounded w-[60px] h-[60px] object-cover"
