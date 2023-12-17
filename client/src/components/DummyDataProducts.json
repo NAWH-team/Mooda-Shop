@@ -1,0 +1,102 @@
+ [
+    {
+      "name": "Robe Red",
+      "img": "./src/public/collection2.png",
+      "description": "robe for summer",
+      "price": "22",
+      "category": "Summer",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Women",
+      "status": "0"
+    },
+    {
+      "name": "Robe Green",
+      "img": "./src/public/collection3.png",
+      "description": "robe for summer",
+      "price": "22",
+      "category": "Summer",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Women",
+      "status": "0"
+    },
+    {
+      "name": "Robe Blue",
+      "img": "./src/public/rectangle-23@2x.png",
+      "description": "robe for summer",
+      "price": "22",
+      "category": "Summer",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Women",
+      "status": "0"
+    },
+    {
+      "name": "Shoes Red",
+      "img": "./src/public/collection7.png",
+      "description": "Shoes for Autumn",
+      "price": "22",
+      "category": "Autumn",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Men",
+      "status": "0"
+    },
+    {
+      "name": "Shoes Blue",
+      "img": "./src/public/collection8.png",
+      "description": "Shoes for Autumn",
+      "price": "22",
+      "category": "Autumn",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Men",
+      "status": "0"
+    },
+    {
+      "name": "Shoes Yellow",
+      "img": "./src/public/collection9.png",
+      "description": "Shoes for Autumn",
+      "price": "22",
+      "category": "Autumn",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Men",
+      "status": "0"
+    },
+    {
+      "name": "METAJACKET OG",
+      "img": "./src/public/collection4.png",
+      "description": "METAJACKET for Winter",
+      "price": "22",
+      "category": "Winter",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Kids",
+      "status": "0"
+    },
+    {
+      "name": "MJ Faze Banks",
+      "img": "./src/public/collection4.png",
+      "description": "METAJACKET: Faze Banks for Winter",
+      "price": "22",
+      "category": "Winter",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Kids",
+      "status": "0"
+    },
+    {
+      "name": "RTFKT X Retrocoin",
+      "img": "./src/public/collection4.png",
+      "description": "METAJACKET: RTFKT X Retrocoin for Winter",
+      "price": "22",
+      "category": "Winter",
+      "quantity": "4",
+      "intQty": "4",
+      "collection": "Kids",
+      "status": "0"
+    }
+  ]
+  

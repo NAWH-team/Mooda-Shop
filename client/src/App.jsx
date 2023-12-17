@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider, } from "react-router-dom";
-import './index.css'  
+import './index.css'
+import './App.css'
 import Mywallet from './pages/wallets.jsx';
 import ArtistPage from './pages/artist/artistProfile.jsx'
 import Navbar from './components/Navbar.jsx'
@@ -22,9 +23,9 @@ import LikedProducts from "./components/LikedProducts.jsx";
 const Layout = () => {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

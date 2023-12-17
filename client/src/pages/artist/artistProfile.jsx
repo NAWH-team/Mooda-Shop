@@ -13,8 +13,10 @@ const ArtistPage = () => {
   
   const [view , setView] = useState()
   const [posts, setPosts] = useState([]);
+
   const {Token ,id}  = JSON.parse(window.localStorage.getItem('User'))
   const [artist,setArtist]= useState( jwtDecode(Token))
+
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -24,6 +26,7 @@ const ArtistPage = () => {
     };
     getPosts();
   }, []);
+
   const Edit = ()=>{
     setView('edit')
   }
