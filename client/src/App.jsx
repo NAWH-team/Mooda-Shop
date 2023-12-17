@@ -15,6 +15,7 @@ import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
  import Favorite from "./pages/favorites.jsx";
+ import Static from "./pages/Static.jsx"
 const Layout = () => {
   return (
     <div>

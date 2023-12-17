@@ -5,7 +5,7 @@ export const MyContext = createContext();
 
   
   const [current, setCurrent] = useState(JSON.parse(window.localStorage.getItem("current"))||null);
-  console.log(current.type);
+ 
   
   const login =async (input)=>{
     const res= await axios.post(`http://127.0.0.1:5000/api/${current.type}/signin`,input)
