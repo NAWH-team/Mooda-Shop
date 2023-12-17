@@ -1,4 +1,3 @@
-// UpcomingCreator.jsx
 
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -7,7 +6,6 @@ import { Route, Routes } from "react-router";
 import { MyContext } from "../myContext";
 import { useContext } from "react";
 import ArtistPageView from "../pages/artist/artistView";
-
 const UpcomingCreator = () => {
   const navigate = useNavigate();
   const { setViewArtist } = useContext(MyContext);
@@ -18,11 +16,11 @@ const UpcomingCreator = () => {
     const getArtists = () => {
       axios.get('http://localhost:8080/artist/all')
         .then((res) => {
-          setArtists(res.data);
+          setArtists(res.data.slice(0,3));
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Error fetching artists:", error);
+          console.error();
           setLoading(false);
         });
     };
@@ -60,9 +58,6 @@ const UpcomingCreator = () => {
           )}
         </div>
       </div>
-      <Routes>
-        <Route path='/go/view' element={<ArtistPageView />} />
-      </Routes>
     </div>
   );
 };
