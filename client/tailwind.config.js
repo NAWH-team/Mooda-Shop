@@ -4,7 +4,6 @@ module.exports = {
     './src/**/*.html',
     './src/**/*.js',
     './src/**/*.jsx',
-    // Add any other file extensions or paths your project uses
   ],
   theme: {
 
@@ -49,23 +48,23 @@ module.exports = {
       base: "16px",
       inherit: "inherit",
     },
-    screens: {
-      pc: {
-        max: "1200px",
-      },
-      ipad: {
-        max: "960px",
-      },
-      phone: {
-        max: "420px",
-      },
-    },
+    // screens: {
+    //   pc: {
+    //     max: "1200px",
+    //   },
+    //   ipad: {
+    //     max: "960px",
+    //   },
+    //   phone: {
+    //     max: "420px",
+    //   },
+    // },
   },
-//   corePlugins: {
-//     preflight: false,
+  corePlugins: {
+    preflight: true,
 
-//   },
-//   plugins: [
-//     require('@tailwindcss/forms'),
-//   ],
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

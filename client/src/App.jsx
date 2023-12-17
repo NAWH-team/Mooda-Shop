@@ -19,7 +19,7 @@ import UpcomingCreator from "./components/UpcomingCreator.jsx";
  import ArtistPageView from "./pages/artist/artistView.jsx";
  import { useContext } from "react";
  import { MyContext } from "./myContext.jsx";
-
+import LikedProducts from "./components/LikedProducts.jsx";
 const Layout = () => {
   return (
     <div>
@@ -86,11 +86,15 @@ element:<AddProduct/>},
     element: <ArtistSignin/>
   },
 
+
   {
     path: "/artist/view/*",
     element: <ArtistPageView/>,
   },
- 
+   {
+     path : "/likedProducts",
+     element:<LikedProducts/>
+   }
   
 ]);
 console.log(MyContext);

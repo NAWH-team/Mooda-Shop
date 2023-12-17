@@ -1,9 +1,16 @@
+import axios from "axios";
 import React ,{useState} from "react";
 
 
 
 const CartProduct = ({product}) => {
     const [like,setLike] = useState("./src/public/Vector (5).png")
+    const {id} = JSON.parse(window.localStorage.getItem('User'))
+    const likeProd = ()=>{
+        axios.post('http://localhost:8080/favorites/add',{userId:id , prodId:product.id}).then((res)=>{
+            console.log(res);
+        })
+    }
 
 
     return (
@@ -32,7 +39,10 @@ const CartProduct = ({product}) => {
                             <div className="absolute top-[0px] left-[0px] w-[258px] flex flex-row items-center justify-start py-0 pr-2.5 pl-1.5 box-border gap-[18px]">
                                 <button 
                                 className="cursor-pointer [border:none] p-0 bg-[transparent] shrink-0 flex flex-col items-center justify-start"
-                                onClick={()=>{setLike("./src/public/heard.png")}}
+                                onClick={()=>{
+                                    likeProd()
+                                    
+                                    setLike("./src/public/heard.png")}}
                                 >
                                     <img
                                         className="relative w-[20px] h-[18px] object-cover"
