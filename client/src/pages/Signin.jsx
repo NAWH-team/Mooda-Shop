@@ -13,17 +13,16 @@ const Signin = () => {
     try {
       if (password && email) {
         const obj = { email: email, password: password };
-        axios.post('http://localhost:8080/user/signin', obj)
-          .then((res) => {
-            
-            res.data.existingUser.type = "user"
-            window.localStorage.setItem('current',JSON.stringify(res.data.existingUser));
-            console.log(res.data);
-          })
-          .then(() => navigate('/'));
+        const res = await axios.post('http://localhost:8080/user/signin', obj);
+        console.log(res.data);
+        window.localStorage.setItem('User', JSON.stringify(res.data));
+        navigate('/');
+      } else {
+        alert('Check Your Information or register first');
       }
     } catch (err) {
-      alert('Register first');
+      console.error(err);
+      alert('Check Your Information or register first');
     }
   };
   const signInWithGoogle = async () => {
