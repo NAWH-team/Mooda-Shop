@@ -106,7 +106,7 @@ const Signin = () => {
                 New user?
               </span>
               <span
-                onClick={() => navigate('/artist/signup')}
+                onClick={() => navigate('/signup')}
                 className="hover:cursor-pointer text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight"
               >
                 {" "}
