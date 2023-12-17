@@ -13,16 +13,17 @@ const Signin = () => {
     try {
       if (password && email) {
         const obj = { email: email, password: password };
-        const res = await axios.post('http://localhost:8080/user/signin', obj);
-        console.log(res.data);
-        window.localStorage.setItem('User', JSON.stringify(res.data));
-        navigate('/');
-      } else {
-        alert('Check Your Information or register first');
+        axios.post('http://localhost:8080/user/signin', obj)
+          .then((res) => {
+            
+            res.data.existingUser.type = "user"
+            window.localStorage.setItem('current',JSON.stringify(res.data.existingUser));
+            console.log(res.data);
+          })
+          .then(() => navigate('/'));
       }
     } catch (err) {
-      console.error(err);
-      alert('Check Your Information or register first');
+      alert('Register first');
     }
   };
   const signInWithGoogle = async () => {
@@ -106,7 +107,7 @@ const Signin = () => {
                 New user?
               </span>
               <span
-                onClick={() => navigate('/artist/signup')}
+                onClick={() => navigate('/signup')}
                 className="hover:cursor-pointer text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight"
               >
                 {" "}

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         img : {
             type: DataTypes.STRING(500),
-            allowNull : false,
+            allowNull : true,
         },
         token:{
           type:DataTypes.STRING(500),
