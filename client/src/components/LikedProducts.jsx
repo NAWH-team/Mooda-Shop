@@ -9,7 +9,6 @@ const LikedProducts = () => {
   const [products,setProducts]=useState()
   const {Token,id}= JSON.parse(window.localStorage.getItem('User'))
   const artist = jwtDecode(Token)
-  console.log(id);
 
   useEffect(()=>{
     getLikedProds()
@@ -18,11 +17,11 @@ const LikedProducts = () => {
 
   
   const getLikedProds = ()=>{
-    axios.get(`http://localhost:8080/favorites/1`).then((res)=>{
+    axios.get(`http://localhost:8080/favorites/${id}`).then((res)=>{
       setProducts(res.data)
     })
   }
-
+  
   const dislike = (e)=>{
     console.log(e);
     axios.delete('http://localhost:8080/favorites/delete',{data:{userId:id, prodId:e.id}}).then(()=>
@@ -71,7 +70,7 @@ const LikedProducts = () => {
         </div>
       </div>)}
       </div>
-      {products.length <= 0 && 
+      { products && products.length <= 0 && 
       <div className="flex justify-center m-9">
       <h1 className="text-4xl text-white  ">U Haven't Liked Any Products yet</h1>
     </div> }

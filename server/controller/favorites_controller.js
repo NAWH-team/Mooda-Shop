@@ -26,6 +26,7 @@ exports.getbyId = async (req, res) => {
 
 
 exports.addProductToFav = async (req, res) => {
+    console.log(req.body);
     const {userId , prodId} = req.body
  
 
@@ -51,7 +52,6 @@ exports.addProductToFav = async (req, res) => {
 
 
 exports.deleteFromFav = async (req, res) => {
-    console.log(req.body);
     const {userId, prodId} = req.body 
     try {
         const user = await db.user.findByPk(userId);

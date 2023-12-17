@@ -35,10 +35,10 @@ const UpcomingCreator = () => {
 
   return (
     <div class="lg:h-[413px]">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col  justify-center items-center">
         <div class="text-white text-[40px] font-bold font-['Poppins']">Upcoming Creators</div>
         <div class="lg:w-[423px] text-center text-white text-opacity-50 text-xl font-medium font-['Poppins']">Dive into the future of artistry with our Upcoming Creators, a collective of emerging talents set to redefine creativity and leave an indelible mark on the artistic realm.</div>
-        <div className="relative flex flex-col-3 lg:flex lg:flex-col gap-4 p-4">
+        <div className="relative flex flex-col-2 lg:flex lg:flex-col-2 gap-4 p-4">
           {loading ? (
             <p>Loading...</p>
           ) : (

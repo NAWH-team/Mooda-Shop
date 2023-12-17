@@ -33,7 +33,6 @@ const ArtistEdit = ({ artist,id }) => {
     };
 
     const uploadCover = async () => {
-        console.log('here');
         if (!cover) return;
 
         const imageRef = ref(storage, `/artistImages/${artist.id}_${cover.name}`);
