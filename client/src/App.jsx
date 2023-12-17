@@ -8,6 +8,7 @@ import Footer from './components/Footer.jsx'
 import Signin from './pages/Signin.jsx'
 import Signup from './pages/Signup.jsx'
 import Home from "./pages/Home.jsx";
+ import FAQ from "./pages/faqPages/faq.jsx";
 // import AboutUs from "./pages/AboutUs.jsx";
 import SignupB from "./pages/SignupB.jsx";
 import SigninB from "./pages/SigninB.jsx";
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       //   path:"/static",
       //   element:<Static/>,
       // }
+      {
+        path : "/likedProducts",
+        element:<LikedProducts/>
+      }
      
     ]
   },
@@ -91,13 +96,12 @@ element:<AddProduct/>},
     path: "/artist/view/*",
     element: <ArtistPageView/>,
   },
-   {
-     path : "/likedProducts",
-     element:<LikedProducts/>
-   }
+  {
+    path : "/likedProducts",
+    element:<LikedProducts/>
+  }
   
 ]);
-console.log(MyContext);
 
 function App() {
   return (

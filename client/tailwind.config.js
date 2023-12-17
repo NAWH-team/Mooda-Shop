@@ -48,17 +48,17 @@ module.exports = {
       base: "16px",
       inherit: "inherit",
     },
-    // screens: {
-    //   pc: {
-    //     max: "1200px",
-    //   },
-    //   ipad: {
-    //     max: "960px",
-    //   },
-    //   phone: {
-    //     max: "420px",
-    //   },
-    // },
+    screens: {
+      pc: {
+        max: "1200px",
+      },
+      ipad: {
+        max: "960px",
+      },
+      phone: {
+        max: "420px",
+      },
+    },
   },
   corePlugins: {
     preflight: true,
