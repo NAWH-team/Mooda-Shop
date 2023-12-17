@@ -15,7 +15,6 @@ exports.findAll = async (req, res) => {
 exports.Signup = async (req, res) => {
   const { name, lastName, email, password, birthDate, img } = req.body;
     console.log(name,lastName,email,password,birthDate);
-    console.log(name,lastName,email,password,birthDate);
   try {
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
@@ -34,7 +33,7 @@ exports.Signup = async (req, res) => {
       birthDate,
       img,
       token,
-      })
+    })
     
     
    res.status(200).json('User created successfully');
