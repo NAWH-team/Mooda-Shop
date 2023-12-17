@@ -89,15 +89,16 @@ const Signin = () => {
   };
 
   return (
-    <div className="flex flex-col-1">
+    <div className="flex flex-col-1 items-center gap-80">
       <img
-        className="w-[302px] h-[477px] lg:relative lg:left-20 lg:block hidden lg:top-32"
+
+        className=" w-[302px] h-[477px]  lg:top-32 "
         src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
         alt="Mooda Shop"
       />
-      <div className="flex justify-center items-center lg:relative lg:left-[300px] top-20">
-        <div className="bg-black h-[800px] w-[370px] lg:w-[527px] lg:h-[799px] bg-opacity-20 rounded-[10px]">
-          <div className="flex flex-col m-8 float-left">
+      <div className=" items-center lg:relative lg:left-[300px] top-20 ">
+        <div className="bg-black h-[800px] w-[470px] lg:w-[527px] lg:h-[799px] bg-opacity-20 rounded-[10px] flex flex-col items-center gap-10">
+          <div className="flex flex-col m-8 f">
             <div className="text-center relative right-16 text-white text-3xl font-extrabold font-['SF Pro Display'] tracking-tight float-left">
               Sign In
             </div>
@@ -115,7 +116,7 @@ const Signin = () => {
             </div>
           </div>
 
-          <div className="flex flex-col relative right-72 top-40">
+          <div className="flex flex-col relative top-4 gap-4">
             <div className="m-8">
               <div className="text-white text-[18px] lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
                 Email Address
@@ -151,7 +152,7 @@ const Signin = () => {
             </button>
             <h1 className="lg:relative lg:left-[260px] relative left-40 text-white text-xl">Or</h1>
           </div>
-          <div>
+          <div className='relative bottom-48 right-8'>
             <div className="lg:w-[459px] lg:h-[72px] w-[300px] rounded-[171px] border border-white top-60 left-10 relative">
               <div className="lg:relative lg:top-4 lg:left-28 flex flex-row m-1">
                 <img className="w-[30px] h-[30px] " src="https://banner2.cleanpng.com/20180521/ers/kisspng-google-logo-5b02bbe1d5c6e0.2384399715269058258756.jpg" alt="Google Logo" />

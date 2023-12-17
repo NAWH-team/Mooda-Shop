@@ -75,7 +75,7 @@ const Navbar  = () => {
             src="./src/public/Vector.png"
           />
           </button>
-          {user.status === 'aritst' && 
+          {user.status !== 'aritst' && 
             <img
             onClick={()=>navigate('/ArtistPage')}
               className="absolute top-[0px] left-[128px] rounded w-[60px] h-[60px] object-cover"

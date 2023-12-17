@@ -12,7 +12,6 @@ const ArtistSignUp = () => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
 
   const birthDate = `${year}-${month}-${day}`;
 
@@ -28,9 +27,9 @@ const ArtistSignUp = () => {
   };
 
   return (
-    <div className="flex flex-col-1">
+    <div className="flex flex-col-1 relative left-40 gap-60">
       <img
-        class=" w-[302px] h-[477px] lg:relative lg:left-20 lg:block hidden lg:top-32"
+        class=" w-[302px] h-[477px]  lg:top-32"
         src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
       />
       <div className="flex justify-center items-center lg:relative lg:left-[300px] top-20">
@@ -43,7 +42,7 @@ const ArtistSignUp = () => {
               <span className=" text-white text-lg font-normal font-['SF Pro Display'] tracking-tight">
                 Already a Member?
               </span>
-              <span onClick={()=>navigate('/artist/signin')} className=" hover:cursor-pointer text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight">
+              <span onClick={()=>navigate('/signin')} className=" hover:cursor-pointer text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight">
                 {" "}
                 Sign In
               </span>
@@ -59,8 +58,8 @@ const ArtistSignUp = () => {
   
   <input
   onChange={(e)=>setEmail(e.target.value)}
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border border-red-500 text-white-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-red-500 focus:border-red-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -76,8 +75,8 @@ const ArtistSignUp = () => {
   
   <input
     onChange={(e)=>setName(e.target.value)}
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border text-white-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-red focus:red-red-50 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[170px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -91,8 +90,8 @@ const ArtistSignUp = () => {
   
   <input
   onChange={(e)=>setlastName(e.target.value)}
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border  text-white-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-white-500 focus:border-red-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[170px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -110,8 +109,8 @@ const ArtistSignUp = () => {
   <input
   onChange={(e)=>setPassword(e.target.value)}
   type="password"
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border text-white dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-red-500  block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -123,8 +122,8 @@ const ArtistSignUp = () => {
       <input
       onChange={(e)=>setMonth(e.target.value)}
      placeholder="Month"
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg focus:ring-red-500 f block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
   </div>
@@ -174,7 +173,6 @@ const ArtistSignUp = () => {
             
         </div>
       </div>
-
   );
 };
 
