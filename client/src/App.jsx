@@ -16,6 +16,8 @@ import AddProduct from "./pages/AddProduct.jsx";
 import Ask from "./pages/faqPages/ask.jsx";
 import ArtistSignUp from "./pages/ArtistAuth/ArtistRegister.jsx";
 import ArtistSignin from "./pages/ArtistAuth/ArtistLogin";
+
+ import Favorite from "./pages/favorites.jsx";
 import UpcomingCreator from "./components/UpcomingCreator.jsx";
  import ArtistPageView from "./pages/artist/artistView.jsx";
  import { useContext } from "react";

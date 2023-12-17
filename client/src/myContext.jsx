@@ -8,7 +8,6 @@ export const MyContext = createContext();
   const [current, setCurrent] = useState(JSON.parse(window.localStorage.getItem("current"))||null);
   const [viewArtist, setViewArtist] = useState(JSON.parse(window.localStorage.getItem('view')));
 
-  
   const login =async (input)=>{
     const res= await axios.post(`http://127.0.0.1:5000/api/${current.type}/signin`,input)
     setCurrent(res.data)
