@@ -72,11 +72,11 @@ exports.logout = (req,res)=>{
 }
 
 exports.update = async (req, res) => {
-  const { name, lastName, img, id } = req.body;
-  const Token = jwt.sign({ name, lastName, img, id, status: 'artist' }, 'Secret');
+  const { name, lastName, img, id ,bio , cover } = req.body;
+  const Token = jwt.sign({ bio,cover,name, lastName, img, id, status: 'artist' }, 'Secret');
   try {
      const [affectedRows] = await Artist.update(
-        { name: name, lastName: lastName, img: img, token: Token },
+        {cover:cover,bio:bio, name: name, lastName: lastName, img: img, token: Token },
         {
            returning: true,
            where: {
@@ -86,7 +86,7 @@ exports.update = async (req, res) => {
      );
      
         const updatedArtist = await Artist.findOne({where:{id:id}});
-        res.json(updatedArtist.token); // Send the token from the updated artist
+        res.json(Token); // Send the token from the updated artist
      
   } catch (err) {
      console.error(err);

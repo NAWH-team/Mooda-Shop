@@ -27,6 +27,7 @@ exports.getbyId = async (req, res) => {
 
 
 exports.addProductForUser = async (req, res) => {
+    console.log(req.body);
     const userId = req.body.userId;
     const prod = req.body.prod;
 
@@ -203,9 +204,5 @@ exports.UpQnty = async (req, res) => {
     }
 };
 
-
-
-
-
-
+};
 

@@ -3,16 +3,19 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from "../../firebasejsx";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-const ArtistEdit = ({ artist,id }) => {
+const ArtistEdit = ({ artist,id,setview }) => {
     const [name, setName] = useState(artist.name || "");
     const [lastName, setLastName] = useState(artist.lastName || "");
     const [img, setImg] = useState(artist.img);
+    const [bio,setBio]= useState(artist.bio || "")
+    const [cover,setCover]= useState(artist.cover)
+    const [coverUrl,setCoverUrl]= useState()
     const [downloadUrl, setDownloadUrl] = useState(artist.img || ""); // Initial value set to the existing image URL if available
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setImg(file);
-    };
-    
+        };
+        
 
     const uploadImage = async () => {
         if (!img) return;
@@ -23,7 +26,22 @@ const ArtistEdit = ({ artist,id }) => {
             await uploadBytes(imageRef, img);
             const url = await getDownloadURL(imageRef);
             setDownloadUrl(url);
-            console.log();
+            
+        } catch (error) {
+            console.error("Error uploading image:", error);
+        }
+    };
+
+    const uploadCover = async () => {
+        if (!cover) return;
+
+        const imageRef = ref(storage, `/artistImages/${artist.id}_${cover.name}`);
+
+        try {
+            await uploadBytes(imageRef, cover);
+            const url = await getDownloadURL(imageRef);
+            setCoverUrl(url);
+            
         } catch (error) {
             console.error("Error uploading image:", error);
         }
@@ -36,7 +54,9 @@ const ArtistEdit = ({ artist,id }) => {
                 name,
                 img: downloadUrl,
                 lastName,
-                id
+                id,
+                cover: coverUrl,
+                bio
             });
     
             if (response && response.data) {
@@ -57,23 +77,34 @@ const ArtistEdit = ({ artist,id }) => {
     
 
     return (
-        <section class="bg-red-900   lg:w-[710px] lg:relative lg:left-60">
+        <div className="flex flex-col items-center m-4">
+
+        <section class=" w-[450px]  lg:w-[710px] ">
         <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
-            <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Update your Profile</h2>
+            <div className="flex flex-col-2 gap-20">
+
+            <h2 class="mb-4 text-xl font-bold dark:text-white">Update your Profile</h2>
+            <button onClick={ ()=>setview('')
+                            
+                          } type="button" class=" m-2   text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                        X
+                    </button>
+            </div>
             <form action="#">
+                
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                   
                     <div class="w-full">
-                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <label for="brand" class="block mb-2 text-sm font-medium  dark:text-white">Name</label>
                         <input defaultValue={artist.name} onChange={
                             (e)=>setName(e.target.value)
-                        } type="text" name="brand" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" />
+                        } type="text" name="brand" id="brand" class=" border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-white bg-opacity-10 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" />
                     </div>
                     <div class="w-full">
                         <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">lastName</label>
                         <input defaultValue={artist.lastName} onChange={
                             (e)=>setLastName(e.target.value)
-                        } type="text" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  required=""/>
+                        } type="text" name="price" id="price" class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-opacity-10   dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  required=""/>
                     </div>
                  
                     <div>
@@ -81,34 +112,50 @@ const ArtistEdit = ({ artist,id }) => {
                         <input onChange={
                             (e)=>setImg(e.target.files[0])
                         } 
-                         type="file"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  placeholder="Ex. 12" required=""/>
+                        type="file"  class=" bg-opacity-10 bg-gray-50 border border-gray-300 text-sm rounded-lg  block w-full p-2.5  dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  placeholder="Ex. 12" required=""/>
                           <button onClick={ async()=>{
                             await uploadImage()
                             
-                          }} type="button" class=" m-2 lg:relative lg:bottom-[44px] lg:left-80    text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                        submit picture first
+                          }} type="button" class=" m-2   text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                        Submit Profile Picture
+                    </button>
+                    </div> 
+                    <div>
+                        <label for="item-weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cover</label>
+                        <input onChange={
+                            (e)=>setCover(e.target.files[0])
+                        } 
+                         type="file"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"  placeholder="Ex. 12" required=""/>
+                          <button onClick={ async()=>{
+                            await uploadCover()
+                            
+                        }} type="button" class=" m-2 lg:relative      text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                        Submit Cover Picture
                     </button>
                     </div> 
                     <div class="sm:col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bio</label>
                        
-                     <textarea id="description" rows="8" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a product description here...">Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US</textarea>
+                     <textarea 
+                      onChange={(e)=>setBio(e.target.value)}
+                      id="description" rows="8" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write a product description here...">
+                        </textarea>
                      
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button onClick={handleSubmit} type="submit" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                <button onClick={handleSubmit} type="button" class=" m-2 lg:relative      text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
                         Update Profile
                     </button>
-                    <button onClick={handleSubmit}>sss</button>
+                    <button onClick={handleSubmit}></button>
                    
 
                 </div>
             </form>
         </div>
       </section>
+                      </div>
         );
     };
 
 export default ArtistEdit;
-

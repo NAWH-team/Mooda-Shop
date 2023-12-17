@@ -4,11 +4,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { jwtDecode } from "jwt-decode";
 const Mywallet = () => {
   const [open, setOpen] = useState(true);
 
-  const { userId } = useParams();
+  const [user,setUser]= useState(jwtDecode(window.localStorage.getItem('User')))
+
   const navigate = useNavigate();
   const [itms, setItems] = useState([]);
   const [updated, setUpdated] = useState(false);
@@ -19,7 +20,7 @@ const Mywallet = () => {
 
   const decrQty = (id) => {
     axios
-      .put(`http://localhost:8080/wallet/dec/1/${id}`)
+      .put(`http://localhost:8080/wallet/dec/${user.id}/${id}`)
       .then((response) => {
         setUpdated(!updated);
         setItems(response.data.products || []);
@@ -31,7 +32,7 @@ const Mywallet = () => {
 
   const incrQty = (id) => {
     axios
-      .put(`http://localhost:8080/wallet/inc/1/${id}`)
+      .put(`http://localhost:8080/wallet/inc/${user.id}/${id}`)
       .then((response) => {
         setUpdated(!updated);
         setItems(response.data.products || []);
@@ -43,7 +44,7 @@ const Mywallet = () => {
 
   const updateQty = () => {
     axios
-      .put(`http://localhost:8080/wallet/UpQnty/1/${id}`)
+      .put(`http://localhost:8080/wallet/UpQnty/${user.id}/${id}`)
       .then((response) => {
         setUpdated(!updated);
       })
@@ -54,7 +55,7 @@ const Mywallet = () => {
 
   const delItem = (id) => {
     axios
-      .delete(`http://localhost:8080/wallet/1/${id}`)
+      .delete(`http://localhost:8080/wallet/${user.id}/${id}`)
       .then((response) => {
         setUpdated(!updated);
         setItems(response.data.products || []);
@@ -67,7 +68,7 @@ const Mywallet = () => {
 
   const delAllItem = (id) => {
     axios
-      .delete(`http://localhost:8080/wallet/1`)
+      .delete(`http://localhost:8080/${user.id}/1`)
       .then((response) => {
         setUpdated(!updated);
         setItems(response.data.products || []);
@@ -80,7 +81,7 @@ const Mywallet = () => {
 
   const initialQty = (id) => {
     axios
-      .put(`http://localhost:8080/wallet/upIntQty/1/${id}`)
+      .put(`http://localhost:8080/wallet/upIntQty/${user.id}/${id}`)
       .then((response) => {
         setUpdated(!updated);
         setItems(response.data.products || []);
@@ -92,7 +93,7 @@ const Mywallet = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/wallet/1`)
+      .get(`http://localhost:8080/wallet/${user.id}`)
       .then((response) => {
         console.log(response.data.products);
         setItems(response.data.products || itms);

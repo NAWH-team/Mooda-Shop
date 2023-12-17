@@ -53,8 +53,10 @@ db.product.belongsToMany(db.user, { through: 'wallets', as: 'users', foreignKey:
 
 
 
+//  favorites
+db.user.belongsToMany(db.product, { through: 'favorites', as: 'likedProductsUser', foreignKey: 'user_id' });
 
-// db.sequelize.sync({alter:true})
+// db.sequelize.sync({force:true})
 
 // brand to product 
 
