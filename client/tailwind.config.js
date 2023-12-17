@@ -26,18 +26,18 @@ module.exports = {
         },
         lightgray: "#cfcfcf",
       },
-      // spacing: {},
+      spacing: {},
       fontFamily: {
         poppins: "Poppins",
         "sf-pro-display": "'SF Pro Display'",
         roboto: "Roboto",
       },
-    //  borderRadius: {
-    //     "5xs-33": "7.3px",
-    //     "8xss": "5px",
-    //     "3xss": "10px",
+     borderRadius: {
+        "5xs-33": "7.3px",
+        "8xss": "5px",
+        "3xss": "10px",
         
-    //   },
+      },
     },
     fontSize: {
       "mini-6": "14.6px",
