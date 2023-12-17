@@ -76,8 +76,8 @@ import axios from "axios";
   
   <input
   onChange={(e)=>setEmail(e.target.value)}
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -93,8 +93,8 @@ import axios from "axios";
   
   <input
     onChange={(e)=>setName(e.target.value)}
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg  block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[170px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -108,8 +108,8 @@ import axios from "axios";
   
   <input
   onChange={(e)=>setlastName(e.target.value)}
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border  dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg  block w-[100px] lg:w-[170px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[170px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -127,8 +127,8 @@ import axios from "axios";
   <input
   onChange={(e)=>setPassword(e.target.value)}
   type="password"
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+  rounded-lg block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
     </div>
@@ -140,8 +140,8 @@ import axios from "axios";
       <input
       onChange={(e)=>setMonth(e.target.value)}
      placeholder="Month"
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg  block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
   </div>
@@ -150,8 +150,8 @@ import axios from "axios";
       <input
       onChange={(e)=>setDay(e.target.value)}
      placeholder="Day"
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border  dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg  block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
   </div>
@@ -160,8 +160,8 @@ import axios from "axios";
       <input
       onChange={(e)=>setYear(e.target.value)}
      placeholder="Year"
-  className="   bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-white dark:placeholder-red-500 text-sm
-  rounded-lg focus:ring-green-500 focus:border-green-500 block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+  className="   bg-green-50 border  dark:text-white placeholder-white dark:placeholder-red-500 text-sm
+  rounded-lg  block w-[100px] lg:w-[120px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
   />
     <div class=" w-[100px] lg:w-[120px] h-[0px] border border-white border-opacity-50  "></div>
   </div>

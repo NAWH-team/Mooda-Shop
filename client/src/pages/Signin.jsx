@@ -92,11 +92,11 @@ const Signin = () => {
     <div className="flex flex-col-1 items-center gap-80">
       <img
 
-        className=" w-[302px] h-[477px]  lg:top-32 "
+        className=" w-[302px] h-[477px]  relative bottom-20 "
         src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
         alt="Mooda Shop"
       />
-      <div className=" items-center lg:relative lg:left-[300px] top-20 ">
+      <div className=" items-center relative  top-20 ">
         <div className="bg-black h-[800px] w-[470px] lg:w-[527px] lg:h-[799px] bg-opacity-20 rounded-[10px] flex flex-col items-center gap-10">
           <div className="flex flex-col m-8 f">
             <div className="text-center relative right-16 text-white text-3xl font-extrabold font-['SF Pro Display'] tracking-tight float-left">
@@ -124,8 +124,8 @@ const Signin = () => {
               <div className="">
                 <input
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-              rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+                  className="bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+              rounded-lg focus:ring-green-50block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
                 />
                 <div className="w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
               </div>
@@ -135,13 +135,12 @@ const Signin = () => {
                 Password
               </div>
               <div className="">
-                <input
-                  type="password"
+              <input
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-green-50 border border-green-500 text-green-900 dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-              rounded-lg focus:ring-green-500 focus:border-green-500 block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+                  className="bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+              rounded-lg focus:ring-green-50block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
                 />
-                <div className="w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
+                <div className=" border border-white border-opacity-50 relative "></div>
               </div>
             </div>
             <button

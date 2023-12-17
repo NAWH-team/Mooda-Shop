@@ -5,9 +5,12 @@ import axios from "axios";
 import { MyContext } from "../myContext";
 import { useContext } from "react";
 import { jwtDecode } from "jwt-decode";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const LikedProducts = () => {
   const [products,setProducts]=useState()
   const {Token,id}= JSON.parse(window.localStorage.getItem('User'))
+  const [heart,setHeart]=useState('red')
   const artist = jwtDecode(Token)
 
   useEffect(()=>{
@@ -32,7 +35,10 @@ const LikedProducts = () => {
   const dislike = (e)=>{
     console.log(e);
     axios.delete('http://localhost:8080/favorites/delete',{data:{userId:id, prodId:e.id}}).then(()=>
-     getLikedProds()
+   { toast.success('Unliked',{
+    position:toast.POSITION.BOTTOM_LEFT
+   })
+     getLikedProds()}
     ).catch((err)=>console.log(err))
   }
   
@@ -40,6 +46,7 @@ const LikedProducts = () => {
   return (
     <div className="">
       <div className="flex flex-col bg-red justify-center items-center bg-opacity">
+        <ToastContainer/>
         <div className="">
           <img className=" " src={bg} />  
         </div>
@@ -77,14 +84,19 @@ const LikedProducts = () => {
               
                                 </button>
 
-            <GoHeartFill
-            onClick={()=>dislike(e)}
-              size={40}
-              className="text-red-700 text-red float-right relative "
-              />
-              
           </div>
           
+          <GoHeartFill
+          
+            onClick={()=>{dislike(e)
+              setHeart('white')
+            
+            }}
+              size={40}
+              color={heart}
+              className="text-red-700 text- float-right relative top-[400px] "
+              />
+              
 
           </div>
       </div>)}

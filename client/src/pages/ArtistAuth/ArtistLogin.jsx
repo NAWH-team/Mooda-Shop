@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ArtistSignin = () => {
   const [email, setEmail] = useState();
@@ -15,21 +17,24 @@ const ArtistSignin = () => {
           .then((res) => {
             window.localStorage.setItem("User", JSON.stringify(res.data));
           })
-          .then(() => navigate("/"));
+          .then(() => navigate("/")).catch(()=>{
+            toast.error('something went wrong try again')
+          })
       }
     } catch (err) {
-      alert("Register first");
+      toast.error('something went wrong')
     }
   };
 
   return (
     <div className="flex flex-col-1 gap-80 top-32 relative">
       <img
-        class=" w-[302px] h-[477px] left-40 relative "
-        src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+class=" w-[302px] h-[477px] left-40 relative "
+      src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
       />
       <div className=" gap-10 ">
         <div className=" bg-black h-[500px] w-[570px] flex flex-col gap items-center bg-opacity-20 rounded-[10px]">
+      <ToastContainer/>
           <div className="flex flex-col m-8 relative right-20  ">
             <div class=" text-white text-3xl font-extrabold font-['SF Pro Display'] tracking-tight float-left">
               Sign In
@@ -96,51 +101,4 @@ const ArtistSignin = () => {
 
 export default ArtistSignin;
 
-// <div className="  lg:flex lg:flex-col-2">
-
-//   <div className="lg:block hidden m-20">
-//   <img class="w-[243.52px] h-[477px]" src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-//   </div>
-//   <div className="float-right lg:m-40 relative bottom-0 left-36 ">
-//   <div class="w-[527px] h-[899px]  bg-white bg-opacity-20 rounded-[10px]">
-//    <div className="float-left m-8 lg:relative relative left-40 lg:left-0">
-
-//    <div class=" text-white text-3xl font-extrabold font-['SF Pro Display'] tracking-tight">Sign In</div>
-//    <div><span className="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative">New user?</span><span className="text-indigo-500 text-lg font-medium font-['SF Pro Display'] tracking-tight"> Create an account</span></div>
-//    </div>
-//    <div>
-//    </div>
-
-//    <div class=" lg:left-10 relative left-32 lg:relative top-10  ">
-//    <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative top-24 right-72">Email Address</div>
-//    <input
-//    onChange={(e)=>setEmail(e.target.value)}
-//      type="text" name="brand" id="brand" class=" w-[350px] bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-red-700 dark:placeholder-green-500 text-sm rounded-lg
-//       focus:ring-green-500 focus:border-green-500 block  p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-red-500" />
-//    <div class="w-[350px]  h-[0px] border border-white border-opacity-50 ">
-//    </div>
-//    </div>
-//    <div class=" lg:left-10 relative left-32 lg:relative top-32  ">
-//    <div class="text-white text-lg font-normal font-['SF Pro Display'] tracking-tight relative ">Password</div>
-//    <input
-//      onChange={(e)=>setPassword(e.target.value)}
-//     type="password" name="brand" id="brand" class=" w-[350px]  bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-red-700 dark:placeholder-green-500 text-sm rounded-lg
-//     focus:ring-green-500 focus:border-green-500 block  p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-red-500" />
-//    <div class="w-[350px]  h-[0px] border border-white border-opacity-50 ">
-//    </div>
-//    </div>
-//    <button onClick={Login} class="text-white text-base font-normal font-['Poppins'] float-right m-8 relative top-32">Login</button>
-//    {/* <div className="relative top-60 left-60"><h1 className="text-xl text-white">Or</h1>
-//    <div class="w-[459px] h-[72px] rounded-[171px] border border-white relative right-52 top-10 flex flex-wrap">
-//     <div className="relative top-4 left-36 flew flex-wrap">
-
-//     <img className="w-[35px] h-[35px] rounded " src="https://banner2.cleanpng.com/20180723/btg/kisspng-google-logo-google-search-google-images-g-suite-google-adwords-5b5695e47fdc94.0743248315324011245237.jpg"/>
-//   <h1>sndqnsd</h1>
-//     </div>
-//    </div>
-//    </div> */}
-//     </div>
-
-//    </div>
-
-// </div>
+  

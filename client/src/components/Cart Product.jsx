@@ -1,7 +1,8 @@
 import axios from "axios";
 import React ,{useState} from "react";
 
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartProduct = ({product}) => {
 
@@ -9,20 +10,29 @@ const CartProduct = ({product}) => {
     const {id} = JSON.parse(window.localStorage.getItem('User'))
     const likeProd = ()=>{
         axios.post('http://localhost:8080/favorites/add',{userId:id , prodId:product.id}).then((res)=>{
-            console.log(res);
+            toast.success('Prodced Added to collection')
         })
     }
     const buy = (product)=>{
-        console.log(product.id);
         axios.post('http://localhost:8080/wallet/addwallet',{prod:product.id , userId:id}).then((res)=>{
-        console.log(res);
+        toast.success('Product has been added to your Wallet',{
+            position: toast.POSITION.BOTTOM_LEFT,
+            
+          })
+        }).catch((err)=>{
+            console.log(err);
         })
     }
+
+  
+      
+      
 
 
     return (
         <>
             <div className="rounded-lg bg-gray-500 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex flex-col items-center justify-start pt-5 px-3.5 pb-4 text-half-white">
+                <ToastContainer/>
                 <div className="relative w-[258px] h-[398.5px]">
                     <img
                         className="absolute top-[0px] left-[5.9px] rounded-5xs-3 w-[246.1px] h-[277.5px] object-cover"

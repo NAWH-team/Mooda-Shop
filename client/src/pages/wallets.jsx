@@ -9,6 +9,7 @@ const Mywallet = () => {
   const [open, setOpen] = useState(true);
 
   const [user,setUser]= useState(jwtDecode(window.localStorage.getItem('User')))
+  console.log(user);
 
   const navigate = useNavigate();
   const [itms, setItems] = useState([]);
@@ -67,8 +68,9 @@ const Mywallet = () => {
   };
 
   const delAllItem = (id) => {
+    console.log(user);
     axios
-      .delete(`http://localhost:8080/${user.id}/1`)
+      .delete(`http://localhost:8080/wallet/${user.id}`)
       .then((response) => {
         setUpdated(!updated);
         setItems(response.data.products || []);
@@ -90,6 +92,7 @@ const Mywallet = () => {
         console.error(error);
       });
   };
+  console.log(user);
 
   useEffect(() => {
     axios
@@ -244,7 +247,7 @@ const Mywallet = () => {
                         <a
                           href="#"
                           className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                          onClick={(e) => {
+                          onClick={() => {
                             delAllItem();
                           }}
                         >
@@ -262,7 +265,7 @@ const Mywallet = () => {
                             }}
                           >
                             Continue Shopping
-                            <span aria-hidden="true"> &rarr;</span>
+                            <span aria-hidden="true"> </span>
                           </button>
                         </p>
                       </div>
