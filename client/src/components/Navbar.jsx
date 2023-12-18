@@ -3,6 +3,8 @@ import { useState } from "react";
 
 const Navbar  = () => {
   const [searchBarValue, setSearchBarValue] = useState();
+const [drop,setDrop]=useState(false)
+
   return (
     <div className=" w-[100%] flex flex-row items-center justify-between py-[26px] px-8 box-border text-left text-[36px] text-red font-roboto ipad:w-[100%] ipad:items-center ipad:justify-between ipad:gap-[1px] phone:w-[100%] ">
       <div className="w-[100%] shrink-0 flex flex-row items-center justify-between py-0 pr-6 pl-14 box-border pc:w-[100%] pc:pl-10 pc:box-border ipad:w-[100%] phone:w-[100%] phone:items-center phone:justify-between phone:gap-[0px] phone:pl-0 phone:pr-0 phone:box-border">
@@ -56,11 +58,13 @@ const Navbar  = () => {
         </div>
         <div className="relative w-[197px] h-11">
           <div className="absolute top-[0px] left-[0px] w-[197px] h-11">
+            
             <button className="cursor-pointer p-2.5 bg-[transparent] absolute top-[3px] left-[0px] rounded-[5px] shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[108px] h-[38px] flex flex-row items-center justify-center m-[2PX] border-[0.5px] border-solid border-white active:box-border active:border-[0.5px] active:border-solid active:border-gainsboro-200 pc:pl-0 pc:pr-0 pc:box-border phone:hidden">
               <div className="relative text-base tracking-[0.02em] font-semibold font-sf-pro-display text-white text-left hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] active:text-gainsboro-100">
                 Wallet
               </div>
             </button>
+
             <button className="cursor-pointer [border:none] p-0 bg-[transparent]  hidden flex-col items-center justify-between  phone:flex hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))]">
           <img
             className="absolute top-[13px] left-[90px] w-[22px] h-[22px] object-cover  "
@@ -68,22 +72,52 @@ const Navbar  = () => {
             src="./src/public/Vector.png"
           />
           </button>
+          <button
+          onClick={()=>{setDrop(!drop)}}
+          >
+             <img
+              className="absolute top-[0px] left-[128px] w-[69px] h-11 object-cover"
+              alt=""
+              src="./src/public/group-427319083@2x.png"
+            />
+          
             <img
               className="absolute top-[0px] left-[128px] w-[69px] h-11 object-cover"
               alt=""
               src="./src/public/group-427319083@2x.png"
             />
+            </button>
           </div>
           
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[12px] left-[208px] h-5 hidden flex-col items-center justify-between ipad:flex phone:flex hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] ">
+          <button 
+          
+          className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[12px] left-[208px] h-5 hidden flex-col items-center justify-between ipad:flex phone:flex hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] ">
             <img
               className="relative w-7 h-5 object-cover"
               alt=""
               src="./src/public/vector@2x.png"
             />
           </button>
+          
         </div>
       </div>
+     { drop && <div className="absolute top-[83px] right-[80px] rounded-md flex flex-col items-start justify-start border-[0.5px] border-solid border-white">
+        <button className="cursor-pointer [border:none] p-2.5 bg-[transparent] rounded-8xs w-[178px] h-[42px] flex flex-row items-center justify-center box-border hover:bg-gray-400 active:bg-lightgray-500">
+          <div className="relative text-base font-poppins text-white text-left">
+            Sing In
+          </div>
+        </button>
+        <button className="cursor-pointer [border:none] p-2.5 bg-[transparent] rounded-8xs w-[178px] h-[42px] flex flex-row items-center justify-center box-border hover:bg-gray-400 active:bg-gainsboro-900">
+          <div className="relative text-base font-poppins text-white text-left">
+            Sing In Artiste
+          </div>
+        </button>
+        <button className="cursor-pointer [border:none] p-2.5 bg-[transparent] rounded-8xs w-[178px] h-[42px] flex flex-row items-center justify-center box-border hover:bg-gray-400 active:bg-lightgray-600">
+          <div className="relative text-base font-poppins text-white text-left">
+            Sing In Brand
+          </div>
+        </button>
+      </div>}
     </div>
   );
 };

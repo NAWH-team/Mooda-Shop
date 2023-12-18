@@ -13,7 +13,7 @@ const AllProduct = () => {
     const [price, setPrice] = useState(false)
     const [collections, setCollections] = useState(false)
     const [categories, setCategories] = useState(false)
-    const [available,setAvailable] = useState(products)
+    // const [available,setAvailable] = useState(products)
     
 
 
