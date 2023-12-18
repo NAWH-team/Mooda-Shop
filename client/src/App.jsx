@@ -10,6 +10,7 @@ import Signup from './pages/Signup.jsx'
 import Home from "./pages/Home.jsx";
  import FAQ from "./pages/faqPages/faq.jsx";
 // import AboutUs from "./pages/AboutUs.jsx";
+import Static from './pages/Static.jsx'
 import SignupB from "./pages/SignupB.jsx";
 import SigninB from "./pages/SigninB.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
@@ -21,6 +22,7 @@ import UpcomingCreator from "./components/UpcomingCreator.jsx";
  import { useContext } from "react";
  import { MyContext } from "./myContext.jsx";
 import LikedProducts from "./components/LikedProducts.jsx";
+console.log(import.meta.env.VITE_APIKEY);
 const Layout = () => {
   return (
     <div>
@@ -52,10 +54,10 @@ const router = createBrowserRouter([
         path:"/ask",
         element:<Ask/>,
       },
-      // {
-      //   path:"/static",
-      //   element:<Static/>,
-      // }
+      {
+        path:"/static",
+        element:<Static/>,
+      },
       {
         path : "/likedProducts",
         element:<LikedProducts/>

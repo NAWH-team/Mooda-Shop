@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from "../../firebasejsx";
+import { storage } from "../../firebase.js";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 const ArtistEdit = ({ artist,id,setview }) => {
@@ -8,7 +8,7 @@ const ArtistEdit = ({ artist,id,setview }) => {
     const [lastName, setLastName] = useState(artist.lastName || "");
     const [img, setImg] = useState(artist.img);
     const [bio,setBio]= useState(artist.bio || "")
-    const [cover,setCover]= useState(artist.cover)
+    const [cover,setCover]= useState(artist.cover || "")
     const [coverUrl,setCoverUrl]= useState()
     const [downloadUrl, setDownloadUrl] = useState(artist.img || ""); // Initial value set to the existing image URL if available
     const handleImageChange = (e) => {

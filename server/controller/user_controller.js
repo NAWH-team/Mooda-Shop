@@ -42,30 +42,38 @@ exports.Signup = async (req, res) => {
     res.status(500).send(error.message || "Internal Server Error");
   }
 };
-exports.Signin = async(req,res) =>{
-  const {email,password}= req.body 
+
+
+exports.Signin = async (req, res) => {
+  console.log(req.body);
+  const { email, password } = req.body;
+
   try {
-    const existinguser = await User.findOne({where:{email}})
-    if(!existinguser){
-      return res.status(400).send("Invalid email and password");
+    const existingUser = await User.findOne({ where: { email } });
+
+    if (!existingUser) {
+      return res.status(400).json(null); // User not found
     }
-    if(existinguser){
-      const checkPassword = await bcrypt.compare(
-        password,
-        existinguser.password
-        )
-        if (checkPassword) {
-        const token = {Token :existinguser.token,id:existinguser.id};
-        res.cookie("access_token", token, { httpOnly: true }).status(200).json(token)
-        // res.status(200).json(token);
-      } else {
-        res.status(400).send("Invalid email and password");
-      }
+
+    const isPasswordValid = await bcrypt.compare(password, existingUser.password);
+
+    if (isPasswordValid) {
+      const token = { Token: existingUser.token, id: existingUser.id };
+
+      // Set the token as a cookie (optional)
+      res.cookie('access_token', token, { httpOnly: true });
+
+      // Send the token in the response
+      res.status(200).json(token);
+    } else {
+      res.status(400).send('Invalid email and password');
     }
-  } catch (error){ 
-      res.status(500).send(error);
-    }
-}
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error.message || 'Internal Server Error');
+  }
+};
+
 exports.logout = (req,res)=>{
     res.clearCookie("acces_token",{
         sameSite:"none",

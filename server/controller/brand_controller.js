@@ -85,6 +85,7 @@ exports.findAll = async (req, res) => {
     }
   }; 
   exports.createProduct = async(req,res)=>{
+    console.log('hereee');
   try {
     const{id} = req.params
     const brand = await Brand.findOne({ where: {id} });

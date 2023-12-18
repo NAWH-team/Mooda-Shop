@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useActionData, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { storage } from "../../firebasejsx";
+import { storage } from "../../firebase.js";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 const ArtistSignUp = () => {
   const [name, setName] = useState("");

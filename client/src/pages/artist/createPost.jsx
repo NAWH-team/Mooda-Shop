@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from "../../firebasejsx";
+import { storage } from "../../firebase.js";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 

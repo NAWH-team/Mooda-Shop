@@ -14,6 +14,7 @@ const FAQ = ()=>{
      }
      getFaq()
     },[])
+    console.log(faq);
 
     const UpVote = (id)=>{
      axios.put('http://localhost:8080/faq/voteup',{id:id})
@@ -29,14 +30,18 @@ const FAQ = ()=>{
                 </div>
                 <div className=" relative  flex flex-wrap m-20  ">
 
-<div className=" flex items-center m-4 h-[200px] w-[300px]">
+{faq && faq.map((e)=>{
+    return (
+        <div className=" flex items-center m-4 h-[200px] w-[300px]">
     <div className="w-[501px]">
     <div class=" text-white text-opacity-50 text-xl font-medium font-['Poppins'] float-right ">+</div>
-    <div class=" relative top-4 text-white text-opacity-50 lg:text-xl font-medium font-['Poppins']">Lorem ipsum ipsum ?</div>
+    <div class=" relative top-4 text-white text-opacity-50 lg:text-xl font-medium font-['Poppins']">{e.body}</div>
     <div class=" relative top-10   h-[0px] bg-white bg-opacity-50 border border-white"></div>
     </div>
    
 </div>
+    )
+})}
 
 
 </div>

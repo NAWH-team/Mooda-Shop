@@ -1,8 +1,12 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
-import { auth } from '../firebasejsx';
+import { auth } from '../firebase.js';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+// import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid'; 
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +18,7 @@ const Signin = () => {
       if (password && email) {
         const obj = { email: email, password: password };
         const res = await axios.post('http://localhost:8080/user/signin', obj);
-        console.log(res.data);
+        console.log(res.data,'eheer');
         window.localStorage.setItem('User', JSON.stringify(res.data));
         navigate('/');
       } else {
@@ -32,45 +36,41 @@ const Signin = () => {
       const user = userCredential.user;
   
       // Check if user has a displayName property
-      if (user.displayName) {
-        var name = user.displayName.split(' ');
-        console.log(user);
+      const displayName = user.displayName || 'Unknown User';
+      const name = displayName.split(' ');
   
-        var obj = {
-          name: name[0],
-          lastName: name[1],
-          password: user.photoURL,
-          email: user.email,
-          img: user.picture,
-          id: Math.random(2000),
-          token: user.accessToken,
-        };
+      const obj = {
+        name: name[0],
+        lastName: name[1] || '', // Handle the case where there is no last name
+        password: user.photoURL,
+        email: user.email,
+        img: user.picture,
+        id: uuidv4(), // Generate a unique ID using uuidv4
+        token: user.accessToken,
+      };
+      navigate('/')
+      try {
+        const res = await axios.post('http://localhost:8080/user/signin', obj);
+        console.log(res);
   
-        try {
-          // Use the same API endpoint for both sign-in and sign-up
-          const res = await axios.post('http://localhost:8080/user/signin', obj);
-          console.log(res.data);
-          if (res.data !== null) {
-            console.log(res.data);
-            window.localStorage.setItem('User', JSON.stringify(res.data));
-          } else {
-            // If the user is not signed in, attempt to sign them up
-            await axios.post('http://localhost:8080/user/signup', obj);
-          }
-  
-          // Navigate to the desired page after sign-in/sign-up
-          navigate('/');
-        } catch (err) {
-          console.error(err);
-          // Handle errors as needed
+        if (res.data !== null) {
+          window.localStorage.setItem('User', JSON.stringify(res.data));
+        } else {
+          await axios.post('http://localhost:8080/user/signup', obj);
+          console.log('User signed up');
         }
+  
+        // Navigate to the desired page after sign-in/sign-up
+        navigate('/');
+      } catch (err) {
+        console.error(err);
+        // Handle API call errors
       }
     } catch (error) {
       console.error(error.message);
-      // Handle errors as needed
+      // Handle authentication errors
     }
   };
-  
   const signInWithFacebook = async () => {
     try {
       const provider = new FacebookAuthProvider();
@@ -131,16 +131,17 @@ const Signin = () => {
               </div>
             </div>
             <div className="m-8">
-              <div className="text-white text-[18px] lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
+              <div class="text-white text-[18px]  lg:text-lg font-normal font-['SF Pro Display'] tracking-tight ">
                 Password
               </div>
               <div className="">
-              <input
+                <input
+                  type="password"
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
-              rounded-lg focus:ring-green-50block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
+                  className="   bg-green-50 border dark:text-white placeholder-red-700 dark:placeholder-red-500 text-sm
+              rounded-lg block w-[250px] lg:w-[400px] p-2.5 dark:bg-opacity-0 dark:bg-white-700 dark:border-opacity-0 dark:border-red-100"
                 />
-                <div className=" border border-white border-opacity-50 relative "></div>
+                <div class=" w-[250px] lg:w-[459px] h-[0px] border border-white border-opacity-50 relative "></div>
               </div>
             </div>
             <button

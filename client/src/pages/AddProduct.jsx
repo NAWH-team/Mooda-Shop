@@ -1,11 +1,17 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { storage } from "../firebasejsx";
+import { storage } from "../firebase.js";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { MyContext } from "../myContext";
+import { jwtDecode } from "jwt-decode";
+
 
 const AddProduct = () => {
+  const {existingbrand} = JSON.parse(window.localStorage.getItem('User'))
+  console.log(existingbrand);
+
+  const id = 1
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -16,18 +22,16 @@ const AddProduct = () => {
   const [img, setImg] = useState(null);
   const [imgUrl, setImgUrl] = useState("");
   const navigate = useNavigate();
-  const { current } = useContext(MyContext);
-  console.log(current);
   // const {id}=useContext()
-  const uploadImage = () => {
+  const uploadImage = (e) => {
+    e.preventDefault()
     if (img === null) return;
-
+  console.log('doksqkod');
     const imageRef = ref(storage, "/userImages/qsdqsdqsqd");
 
     uploadBytes(imageRef, img)
       .then((res) => getDownloadURL(res.ref))
       .then((result) => {
-        console.log(result);
         setImgUrl(result); // Set the image URL in the state
       })
       .catch((error) => {
@@ -45,10 +49,12 @@ const AddProduct = () => {
       status,
       img: imgUrl,
       collection,
+      status:1,
     };
+    console.log(product,'heeeeeeeere');
 
     try {
-      await axios.post(`http://localhost:8080/brand/add/${current.id}`, product);
+      await axios.post(`http://localhost:8080/brand/add/${existingbrand.id}`, product);
     } catch (error) {
       console.log(error);
     }
@@ -186,6 +192,7 @@ const AddProduct = () => {
           </div>
 
           <button
+          onClick={handleSubmit}
             type="submit"
             className="bg-indigo-500 text-white p-2 rounded w-full sm:w-auto"
           >
@@ -198,3 +205,4 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+  

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { storage } from "../firebasejsx";
+import { storage } from "../firebase.js";
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const SignupB = () => {

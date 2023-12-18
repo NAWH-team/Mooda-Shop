@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         intQty : {
           type : DataTypes.INTEGER,
           allowNull : false,
+          defaultValue : 1,
       },
         collection : {
              type : DataTypes.STRING,

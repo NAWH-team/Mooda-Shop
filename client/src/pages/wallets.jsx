@@ -149,7 +149,7 @@ const Mywallet = () => {
                         <div className="ml-3 flex h-7 items-center">
                           <button
                             type="button"
-                            className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                            className="relative -m-2 p-2 text-black hover:text-gray-500"
                             onClick={() => {
                               hide();
                             }}
@@ -200,16 +200,16 @@ const Mywallet = () => {
                                     <div className="flex items-center space-x-3">
                                       <button
                                         onClick={() => decrQty(product.id)}
-                                        className="text-gray-500"
+                                        className="text-black text-xl bg"
                                       >
                                         -
                                       </button>
-                                      <p className="text-gray-500">
+                                      <p className="text-xl text-black">
                                         {product.intQty}
                                       </p>
                                       <button
                                         onClick={() => incrQty(product.id)}
-                                        className="text-gray-500"
+                                        className="text-black text-xl "
                                       >
                                         +
                                       </button>
