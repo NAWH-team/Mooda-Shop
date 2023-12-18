@@ -11,7 +11,7 @@ const CartProduct = ({product}) => {
             <div className="rounded-lg bg-gray-500 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex flex-col items-center justify-start pt-5 px-3.5 pb-4 text-half-white">
                 <div className="relative w-[258px] h-[398.5px]">
                     <img
-                        className="absolute top-[0px] left-[5.9px] rounded-5xs-3 w-[246.1px] h-[277.5px] object-cover"
+                        className="absolute top-[0px] left-[5.9px] rounded-5xs-33 w-[246.1px] h-[277.5px] object-cover"
                         alt=""
                         src={product.img}
                     />
@@ -40,7 +40,7 @@ const CartProduct = ({product}) => {
                                         src={like}
                                     />
                                 </button>
-                                <button className="cursor-pointer [border:none] py-[7.303840637207031px] px-[14.607681274414062px] bg-[transparent] flex-1 rounded-5xs-3 [background:linear-gradient(232.11deg,_#ff5b29,_rgba(255,_242,_245,_0.64)_13.54%,_rgba(255,_61,_0,_0.74)_41.15%,_rgba(144,_12,_63,_0.82)_74.48%,_#900c3f_98.96%)] h-[37px] flex flex-row items-center justify-center box-border hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] active:bg-orangered">
+                                <button className="cursor-pointer [border:none] py-[7.303840637207031px] px-[14.607681274414062px] bg-[transparent] flex-1 rounded-5xs-33 [background:linear-gradient(232.11deg,_#ff5b29,_rgba(255,_242,_245,_0.64)_13.54%,_rgba(255,_61,_0,_0.74)_41.15%,_rgba(144,_12,_63,_0.82)_74.48%,_#900c3f_98.96%)] h-[37px] flex flex-row items-center justify-center box-border hover:[filter:drop-shadow(0px_4px_4px_rgba(0,_0,_0,_0.25))] active:bg-orangered">
                                     <div className="relative text-mini-6 font-semibold font-poppins text-white text-left inline-block w-[64.3px] h-[21.9px] shrink-0">
                                         Buy Now
                                     </div>

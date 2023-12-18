@@ -77,7 +77,7 @@ const AllProduct = () => {
         <>
             <div className="relative  w-full h-full overflow-hidden flex flex-row items-start justify-start py-0 px-px box-border text-left text-[26px] text-white font-poppins">
                 <div className="self-stretch flex-1 flex flex-row items-start justify-start p-10 gap-[60px]">
-                    <div className="self-stretch flex-1 rounded-3xs bg-gray-500 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex flex-col items-start justify-start pt-[42px]  px-0 pb-48 box-border gap-[50px] min-w-[40px] max-w-[360px]">
+                    <div className="self-stretch flex-1 rounded-3xss bg-gray-500 shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] flex flex-col items-start justify-start pt-[42px]  px-0 pb-48 box-border gap-[50px] min-w-[40px] max-w-[360px]">
                         <div className="self-stretch flex flex-row items-center justify-start py-0 pr-5 pl-[30px] gap-[16px]">
                             <img
                                 className="relative w-[29.1px] h-[17px] object-cover"

@@ -28,9 +28,9 @@ module.exports = {
         roboto: "Roboto",
       },
       borderRadius: {
-        "5xs-3": "7.3px",
-        "8xs": "5px",
-        "3xs": "10px",
+        "5xs-33": "7.3px",
+        "8xss": "5px",
+        "3xss": "10px",
         
       },
     },
