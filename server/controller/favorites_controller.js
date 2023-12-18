@@ -33,13 +33,13 @@ exports.addProductToFav = async (req, res) => {
     try {
         const user = await db.user.findByPk(userId);
         if (!user) {
-            return res.json();
+            return res.json('no user');
         }
 
         const product = await db.product.findByPk(prodId);
         if (!product) {
             return res.json('no product');
-        }
+        } 
 
         await user.addLikedProductsUser(product);
 

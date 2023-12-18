@@ -8,9 +8,7 @@ import { jwtDecode } from "jwt-decode";
 const Mywallet = () => {
   const [open, setOpen] = useState(true);
 
-  const [user,setUser]= useState(jwtDecode(window.localStorage.getItem('User')))
-  console.log(user);
-
+  const [user,setUser]= useState(JSON.parse(window.localStorage.getItem('User')))
   const navigate = useNavigate();
   const [itms, setItems] = useState([]);
   const [updated, setUpdated] = useState(false);

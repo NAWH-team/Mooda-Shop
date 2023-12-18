@@ -38,23 +38,9 @@ console.log(viewArtist);
         <img src={artist.cover}/>
         <div className="flex flex-col float-right relative bottom-20 ">
 
-        <button onClick={ ()=>
-          setView('edit')
-        } className="float-right w-[100px] h-[30px] rounded-[20px] text-white  bg-white bg-opacity-10 flex flex-col-2  ">
-          
-          <MdEdit  /> edit
-         
-          
-          </button>
+       
         </div>
-        <button
-        onClick={()=>setView('create')}
-         className="float-right w-[100px] h-[30px] rounded-[20px] text-white  bg-white bg-opacity-10 flex flex-col-2  ">
-          
-            <MdEdit  /> Post
-           
-            
-            </button>
+     
       </div>
       <div className="relative bottom-20 items-center flex flex-col">
 

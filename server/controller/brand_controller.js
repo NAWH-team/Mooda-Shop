@@ -13,14 +13,17 @@ exports.findAll = async (req, res) => {
   };
   
   exports.Signup = async (req, res) => {
+    
     const { name,email, password,img } = req.body;
   
     try {
       const existingBrand = await Brand.findOne({ where: { email } });
       if (existingBrand) {
         return res.status(409).json(existingBrand);
-      }
-  
+        } else {
+          
+        }
+    
       const hashPassword = await bcrypt.hash(password, 10);
       const token = jwt.sign({ name ,img,status:'brand' },'shop');
   

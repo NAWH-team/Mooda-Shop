@@ -34,13 +34,15 @@ import axios from "axios";
       const birthDate = `${year}-${month}-${day}`
 
     const handelSubmit = async (e) => {
+      console.log('here');
     e.preventDefault();
     var obj ={name,lastName,password,email,img:imgUrl,birthDate}
+    console.log(obj);
     try {
-      await axios.post("http://localhost:8080/user/signup", obj);
+      await axios.post("http://localhost:8080/user/signup", obj)
       navigate("/signin");
     } catch (err) {
-      setError(err);
+      console.log(err)
     }
   };
 

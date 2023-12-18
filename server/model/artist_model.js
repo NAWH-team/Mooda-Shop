@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull : false,
         },
         img : {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull : true,
             defaultValue: 'https://img.freepik.com/premium-vector/avatar-profile-icon-vector-illustration_276184-165.jpg',
         },

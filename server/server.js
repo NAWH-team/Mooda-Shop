@@ -24,6 +24,7 @@ app.use('/faq',require('./routes/FAQ_routes.js'))
   // artistpost
   app.use('/post',require('./routes/artistPost_routes.js'))
 
+  app.use('/brand',require('./routes/brand_routes.js'))
 
   // artist 
 
